@@ -1,4 +1,13 @@
 {
+    
+    "Trade (% of GDP)": {
+        "source":["Trade (% of GDP)"],
+        "category":"direct",
+        "icon":"",
+        "description":"",
+        "display":true
+    },
+    
     "Service exports": {
         "source":["Service exports (BoP, current US$)"],
         "category":"export",
@@ -105,6 +114,7 @@
         "category": "direct",
         "icon":"",
         "description":"",
+        "scale":"inverted",
         "display":true
     },
     "Fuel price diesel": {
@@ -165,7 +175,10 @@
         "scale":"inverted"
     },
     "Shipping industry": {
-        "source":["Liner shipping connectivity index (maximum value in 2004 = 100)"],
+        "source":[
+            "Liner shipping connectivity index (maximum value in 2004 = 100)",
+            "Quality of port infrastructure, WEF (1=extremely underdeveloped to 7=well developed and efficient by international standards)"
+        ],
         "category": "direct",
         "display":true,
         "icon":"",
@@ -221,7 +234,6 @@
     },
 
 
-    
 
     "Communication": {
         "source":[
@@ -257,7 +269,7 @@
     },
     
     
-    "Customs time": {
+    "Time customs": {
         "source":["Average time to clear exports through customs (days)"],
         "category": "direct",
         "display":true,
@@ -265,9 +277,30 @@
         "description":"",
         "scale":"inverted"
     },
+    "Time export": {
+        "source":["Time to export (days)"],
+        "category": "export",
+        "display":true,
+        "icon":"",
+        "description":"",
+        "scale":"inverted"
+    },
+    "Time import": {
+        "source":["Time to import (days)"],
+        "category": "import",
+        "display":true,
+        "icon":"",
+        "description":"",
+        "scale":"inverted"
+    },
+
+    
     
     "Documents required": {
-        "source":["Documents to export (number)", "Documents to import (number)"],
+        "source":[
+            "Documents to export (number)",
+            "Documents to import (number)"
+        ],
         "category": "direct",
         "display":true,
         "icon":"",
@@ -289,7 +322,61 @@
         "icon":"",
         "description":"",
         "scale":"inverted"
+    },
+
+
+    "Employment": {
+        "souces":[
+            "Employment in agriculture (% of total employment)",
+            "Employment in industry (% of total employment)",
+            "Employment in services (% of total employment)"
+        ],
+        "category": "indirect",
+        "display":true,
+        "icon":"",
+        "description":""
+    },
+    "Unemployment": {
+        "source":["Unemployment, total (% of total labor force)"],
+        "scale":"inverted",
+        "category": "indirect",
+        "display":true,
+        "icon":"",
+        "description":""
+    },
+    "Employment agriculture": {
+        "source":["Employment in agriculture (% of total employment)"],
+        "category": "indirect",
+        "display":false,
+        "icon":"",
+        "description":""
+    },
+    "Employment industry": {
+        "source":["Employment in industry (% of total employment)"],
+        "category": "indirect",
+        "display":false,
+        "icon":"",
+        "description":""
+    },
+    "Employment services": {
+        "source":["Employment in services (% of total employment)"],
+        "category": "indirect",
+        "display":false,
+        "icon":"",
+        "description":""
+    },
+    
+    
+    "Gender equality": {
+        "source":[
+            "Ratio of girls to boys in primary and secondary education (%)",
+            "Firms with female participation in ownership (% of firms)",
+            "Proportion of seats held by women in national parliaments (%)"
+        ],
+        "category": "indirect",
+        "display":true,
+        "icon":"",
+        "description":""
     }
-
-
+    
 }
