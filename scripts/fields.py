@@ -47,17 +47,20 @@ for n, line in enumerate(csv.reader(open(ROOT+DATA))):
             else:
                 fields[field_id]["data"][country_name] = 0
 
-for n, indicator_name in enumerate(fields):
+for n, field_id in enumerate(fields):
     if progressbar: pbar.update(n/float(len(fields))*100)
 
-    if "data" in fields[indicator_name]:
-        in_min = min(fields[indicator_name]["data"].values())
-        in_max = max(fields[indicator_name]["data"].values())
+    if "data" in fields[field_id]:
+        in_min = min(fields[field_id]["data"].values())
+        in_max = max(fields[field_id]["data"].values())
         in_range = in_max - in_min
 
-        for country in fields[indicator_name]["data"]:
-            orig = fields[indicator_name]["data"][country]
-            fields[indicator_name]["data"][country] = (orig - in_min) / in_range
+        for country in fields[field_id]["data"]:
+            orig = fields[field_id]["data"][country]
+            fields[field_id]["data"][country] = (orig - in_min) / in_range
+
+            if fields[field_id].get("scale") == "inverted":
+                fields[field_id]["data"][country] = 1 - fields[field_id]["data"][country]
 
 if progressbar: pbar.finish()
 
