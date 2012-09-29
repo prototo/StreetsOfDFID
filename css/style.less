@@ -55,7 +55,7 @@ HTML, BODY {
       border-bottom: 2px solid black;
       height: @top-bar-height;
       width: 100%;
-      overflow: auto;
+      overflow: visible;
     }
 
     DIV#rows {
@@ -69,21 +69,20 @@ HTML, BODY {
 }
 
 .icon {
-  .rounded(5px);
+  .rounded(10px);
   height: 80px;
   width: 80px;
   margin: 10px 5px;
-  background-size: 100%;
+  background-size: 90%;
   background-repeat: no-repeat;
   background-position: center center;
   display: inline-block;
-  border: 2px solid #000;
   cursor: pointer;
+  overflow: visible;
+  background-color: white;
 
   &.enabled {
-    .box-shadow(inset 0 0 10px rgba(0, 0, 0, 0.5));
     background-color: @lightyellow;
-    border-color: @darkyellow;
   }
 }
 
@@ -93,7 +92,6 @@ HTML, BODY {
   
   &.enabled {
     background-color: @lightorange;
-    border-color: @darkorange;
   }
 }
 
@@ -115,6 +113,20 @@ HTML, BODY {
     background-size: 100%;
     pointer: cursor;
   }
+}
+
+/* simpletip */
+.tooltip {
+  .rounded(10px);
+  .drop-shadow(0, 2px, 5px, 0.5);
+  position: absolute;
+  background-color: @lightblue;
+  color: white;
+  font-weight: bold;
+  margin-top: 5px;
+  text-align: center;
+  font-size: 14px;
+  padding: 15px;
 }
 
 /* bar types */
