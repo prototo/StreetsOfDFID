@@ -14,6 +14,23 @@
         "display":true
     },
     
+    "Technology goods export": {
+        "source":["ICT goods exports (% of total goods exports)"],
+        "category":"export",
+        "icon":"",
+        "description":"",
+        "display":true
+    },
+    "Technology good import": {
+        "source":["ICT goods imports (% total goods imports)"],
+        "category":"import",
+        "icon":"",
+        "description":"",
+        "display":true
+    },
+
+    
+    
     "Tax revenue": {
         "source":["Tax revenue (% of GDP)"],
         "category": "indirect",
@@ -43,12 +60,20 @@
         "source":[
             "Labor force with primary education (% of total)",
             "Labor force with secondary education (% of total)",
-            "Labor force with tertiary education (% of total)"
+            "Labor force with tertiary education (% of total)",
+            "Public spending on education, total (% of government expenditure)"
         ],
         "category": "indirect",
         "icon":"",
         "description":"",
         "display":true
+    },
+    "Education spending": {
+        "source":["Public spending on education, total (% of government expenditure)"],
+        "category": "indirect",
+        "icon":"",
+        "description":"",
+        "display":false
     },
     "Education primary": {
         "source":["Labor force with primary education (% of total)"],
@@ -229,8 +254,42 @@
         "display":false,
         "icon":"",
         "description":""
+    },
+    
+    
+    "Customs time": {
+        "source":["Average time to clear exports through customs (days)"],
+        "category": "direct",
+        "display":true,
+        "icon":"",
+        "description":"",
+        "scale":"inverted"
+    },
+    
+    "Documents required": {
+        "source":["Documents to export (number)", "Documents to import (number)"],
+        "category": "direct",
+        "display":true,
+        "icon":"",
+        "description":"",
+        "scale":"inverted"
+    },
+    "Documents to export": {
+        "source":["Documents to export (number)"],
+        "category": "export",
+        "display":true,
+        "icon":"",
+        "description":"",
+        "scale":"inverted"
+    },
+    "Documents to import": {
+        "source":["Documents to import (number)"],
+        "category": "import",
+        "display":true,
+        "icon":"",
+        "description":"",
+        "scale":"inverted"
     }
-    
-    
-    
+
+
 }
