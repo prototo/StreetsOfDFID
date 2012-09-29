@@ -16,21 +16,21 @@
         "category": "indirect",
         "icon":"",
         "description":"",
-        "scale"="inverted",
+        "scale":"inverted",
         "display":True
     },
     "Taxes on international trade (% of revenue)": {
         "category": "import",
         "icon":"",
         "description":"",
-        "scale"="inverted",
+        "scale":"inverted",
         "display":True
     },
     "Taxes on exports (% of tax revenue)": {
         "category": "export",
         "icon":"",
         "description":"",
-        "scale"="inverted",
+        "scale":"inverted",
         "display":True
     },
 
@@ -79,14 +79,14 @@
         "category": "direct",
         "icon":"",
         "description":"",
-        "scale"="inverted",
+        "scale":"inverted",
         "display":False
-    }
+    },
     "Pump price for gasoline (US$ per liter)": {
         "category": "direct",
         "icon":"",
         "description":"",
-        "scale"="inverted",
+        "scale":"inverted",
         "display":False
     }
 
