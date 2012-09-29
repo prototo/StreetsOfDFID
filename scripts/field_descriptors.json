@@ -66,9 +66,8 @@
 
     "Fuel cost": {
         "alias":[
-            "Labor force with primary education (% of total)",
-            "Labor force with secondary education (% of total)",
-            "Labor force with tertiary education (% of total)"
+            "Pump price for diesel fuel (US$ per liter)",
+            "Pump price for gasoline (US$ per liter)"
         ],
         "category": "direct",
         "icon":"",
@@ -88,6 +87,29 @@
         "description":"",
         "scale":"inverted",
         "display":false
+    },
+
+
+    "Container port traffic (TEU: 20 foot equivalent units)": {
+        "category": "direct",
+        "display":true,
+        "icon":"",
+        "description":""
+    },
+    "Cost to export (US$ per container)": {
+        "category": "export",
+        "display":true,
+        "icon":"",
+        "description":"",
+        "scale":"inverted"
+    },
+    "Cost to import (US$ per container)": {
+        "category": "import",
+        "display":true,
+        "icon":"",
+        "description":"",
+        "scale":"inverted"
     }
+
 
 }
