@@ -7,7 +7,9 @@ ROOT="../DFID/World Bank/"
 LEX="WDI data lexicon.csv"
 
 fields = {}
-for line in csv.reader(open("fields.csv")):
+for n, line in enumerate(csv.reader(open("fields.csv"))):
+    if n == 0:  # skip header line
+        continue
     official_name, name = line
     fields[official_name] = {
         "name": name,
