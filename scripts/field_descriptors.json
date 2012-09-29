@@ -3,13 +3,13 @@
         "category":"export",
         "icon":"",
         "description":"",
-        "display":True
+        "display":true
     },
     "Service imports (BoP, current US$)": {
         "category":"import",
         "icon":"",
         "description":"",
-        "display":True
+        "display":true
     },
     
     "Tax revenue (% of GDP)": {
@@ -17,21 +17,21 @@
         "icon":"",
         "description":"",
         "scale":"inverted",
-        "display":True
+        "display":true
     },
     "Taxes on international trade (% of revenue)": {
         "category": "import",
         "icon":"",
         "description":"",
         "scale":"inverted",
-        "display":True
+        "display":true
     },
     "Taxes on exports (% of tax revenue)": {
         "category": "export",
         "icon":"",
         "description":"",
         "scale":"inverted",
-        "display":True
+        "display":true
     },
 
     "Education": {
@@ -43,25 +43,25 @@
         "category": "indirect",
         "icon":"",
         "description":"",
-        "display":True
+        "display":true
     },
     "Labor force with primary education (% of total)": {
         "category": "indirect",
         "icon":"",
         "description":"",
-        "display":False
+        "display":false
     },
     "Labor force with secondary education (% of total)": {
         "category": "indirect",
         "icon":"",
         "description":"",
-        "display":False
+        "display":false
     },
     "Labor force with tertiary education (% of total)": {
         "category": "indirect",
         "icon":"",
         "description":"",
-        "display":False
+        "display":false
     },
 
     "Fuel cost": {
@@ -73,21 +73,21 @@
         "category": "direct",
         "icon":"",
         "description":"",
-        "display":True
+        "display":true
     },
     "Pump price for diesel fuel (US$ per liter)": {
         "category": "direct",
         "icon":"",
         "description":"",
         "scale":"inverted",
-        "display":False
+        "display":false
     },
     "Pump price for gasoline (US$ per liter)": {
         "category": "direct",
         "icon":"",
         "description":"",
         "scale":"inverted",
-        "display":False
+        "display":false
     }
 
 }
