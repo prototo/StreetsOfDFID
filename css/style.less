@@ -2,7 +2,20 @@
 @import "elements.less";
 
 // VARS
-@bar-width: 100px;
+@top-bar-height: 100px;
+@left-bar-width: 120px;
+
+@blue : #0B61A4;
+@lightblue : lighten(@blue, 20%);
+@darkblue : darken(@blue, 20%);
+@yellow : #FFBF00;
+@lightyellow : lighten(@yellow, 20%);
+@darkyellow : darken(@yellow, 20%);
+@orange : #FF4900;
+@lightorange : lighten(@orange, 20%);
+@darkorange : darken(@orange, 20%);
+
+@background : #222;
 
 // STYLE
 HTML, BODY {
@@ -16,7 +29,7 @@ HTML, BODY {
   }
 
   DIV#content {
-    .gradient(#222, #303030, #202020);
+    .gradient(@background, lighten(@background, 10%), @background);
     width: 100%;
     height: 100%;
     padding: 0;
@@ -25,11 +38,13 @@ HTML, BODY {
     DIV#left-bar {
       background: #fff;
       position: fixed;
-      top: 0;
+      top: @top-bar-height;
       left: 0;
-      width: 100px;
-      height: 100%;
+      bottom: 0;
+      width: @left-bar-width;
       border-right: 2px solid black;
+      overflow: auto;
+      padding: 5px 0 0 0;
     }
 
     DIV#top-bar {
@@ -38,12 +53,13 @@ HTML, BODY {
       top: 0;
       left: 0;
       border-bottom: 2px solid black;
-      height: 100px;
+      height: @top-bar-height;
       width: 100%;
+      overflow: auto;
     }
 
     DIV#rows {
-      margin: 100px 0 0 100px;
+      margin: @top-bar-height 0 0 @left-bar-width;
     }
   }
 
@@ -56,18 +72,50 @@ HTML, BODY {
   .rounded(5px);
   height: 80px;
   width: 80px;
-  margin: 10px;
+  margin: 10px 5px;
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: center center;
   display: inline-block;
-  border: 1px solid black;
+  border: 2px solid #000;
+  cursor: pointer;
 
   &.enabled {
-    background-color: pink;
+    .box-shadow(inset 0 0 10px rgba(0, 0, 0, 0.5));
+    background-color: @lightyellow;
+    border-color: @darkyellow;
   }
 }
 
+.flag {
+  .icon;
+  margin: 5px 10px;
+  
+  &.enabled {
+    background-color: @lightorange;
+    border-color: @darkorange;
+  }
+}
+
+.row {
+  height: 100px;
+  width: 100%;
+  position: relative;
+  display: block;
+  border-bottom: 2px solid black;
+  
+  .remove {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 50px;
+    width: 50px;
+    background-image: url("../img/icons/Greedo.png");
+    background-size: 100%;
+    pointer: cursor;
+  }
+}
 
 /* bar types */
 .bar {
