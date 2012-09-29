@@ -1,5 +1,5 @@
 
-data/lexicon.json:
-	cd scripts && ./things2json.py
+data/lexicon.json: scripts/fields.txt scripts/lexicon.py
+	cd scripts && ./lexicon.py
 
 
