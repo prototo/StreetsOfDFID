@@ -1,32 +1,37 @@
 {
-    "Service exports (BoP, current US$)": {
+    "Service exports": {
+        "source":["Service exports (BoP, current US$)"],
         "category":"export",
         "icon":"",
         "description":"",
         "display":true
     },
-    "Service imports (BoP, current US$)": {
+    "Service imports": {
+        "source":["Service imports (BoP, current US$)"],
         "category":"import",
         "icon":"",
         "description":"",
         "display":true
     },
     
-    "Tax revenue (% of GDP)": {
+    "Tax revenue": {
+        "source":["Tax revenue (% of GDP)"],
         "category": "indirect",
         "icon":"",
         "description":"",
         "scale":"inverted",
         "display":true
     },
-    "Taxes on international trade (% of revenue)": {
+    "Taxes on imports": {
+        "source":["Taxes on international trade (% of revenue)"],
         "category": "import",
         "icon":"",
         "description":"",
         "scale":"inverted",
         "display":true
     },
-    "Taxes on exports (% of tax revenue)": {
+    "Taxes on exports": {
+        "source":["Taxes on exports (% of tax revenue)"],
         "category": "export",
         "icon":"",
         "description":"",
@@ -35,7 +40,7 @@
     },
 
     "Education": {
-        "alias":[
+        "source":[
             "Labor force with primary education (% of total)",
             "Labor force with secondary education (% of total)",
             "Labor force with tertiary education (% of total)"
@@ -45,19 +50,22 @@
         "description":"",
         "display":true
     },
-    "Labor force with primary education (% of total)": {
+    "Education primary": {
+        "source":["Labor force with primary education (% of total)"],
         "category": "indirect",
         "icon":"",
         "description":"",
         "display":false
     },
-    "Labor force with secondary education (% of total)": {
+    "Education secondary": {
+        "source":["Labor force with secondary education (% of total)"],
         "category": "indirect",
         "icon":"",
         "description":"",
         "display":false
     },
-    "Labor force with tertiary education (% of total)": {
+    "Education tertiary": {
+        "source": ["Labor force with tertiary education (% of total)"],
         "category": "indirect",
         "icon":"",
         "description":"",
@@ -65,7 +73,7 @@
     },
 
     "Fuel cost": {
-        "alias":[
+        "source":[
             "Pump price for diesel fuel (US$ per liter)",
             "Pump price for gasoline (US$ per liter)"
         ],
@@ -74,27 +82,31 @@
         "description":"",
         "display":true
     },
-    "Pump price for diesel fuel (US$ per liter)": {
+    "Fuel price diesel": {
+        "source":["Pump price for diesel fuel (US$ per liter)"],
         "category": "direct",
         "icon":"",
         "description":"",
         "scale":"inverted",
         "display":false
     },
-    "Pump price for gasoline (US$ per liter)": {
+    "Fuel price petrol": {
+        "source": ["Pump price for gasoline (US$ per liter)"],
         "category": "direct",
         "icon":"",
         "description":"",
         "scale":"inverted",
         "display":false
     },
-    "Fuel exports (% of merchandise exports)": {
+    "Fuel exports": {
+        "source":["Fuel exports (% of merchandise exports)"],
         "category": "export",
         "icon":"",
         "description":"",
         "display":true
     },
-    "Fuel imports (% of merchandise imports)": {
+    "Fuel imports": {
+        "source":["Fuel imports (% of merchandise imports)"],
         "category": "import",
         "icon":"",
         "description":"",
@@ -104,35 +116,40 @@
 
 
 
-    "Container port traffic (TEU: 20 foot equivalent units)": {
+    "Container port traffic": {
+        "source":["Container port traffic (TEU: 20 foot equivalent units)"],
         "category": "direct",
         "display":true,
         "icon":"",
         "description":""
     },
-    "Cost to export (US$ per container)": {
+    "Container cost export": {
+        "source":["Cost to export (US$ per container)"],
         "category": "export",
         "display":true,
         "icon":"",
         "description":"",
         "scale":"inverted"
     },
-    "Cost to import (US$ per container)": {
+    "Container cost to import": {
+        "source":["Cost to import (US$ per container)"],
         "category": "import",
         "display":true,
         "icon":"",
         "description":"",
         "scale":"inverted"
     },
-    "Liner shipping connectivity index (maximum value in 2004 = 100)": {
+    "Shipping industry": {
+        "source":["Liner shipping connectivity index (maximum value in 2004 = 100)"],
         "category": "direct",
         "display":true,
         "icon":"",
         "description":""
     },
+
 
     "Logistics": {
-        "alias":[
+        "source":[
             "Logistics performance index: Efficiency of customs clearance process (1=low to 5=high)",
             "Logistics performance index: Frequency with which shipments reach consignee within scheduled or expected time (1=low to 5=high)",
             "Logistics performance index: Quality of trade and transport-related infrastructure (1=low to 5=high)"
@@ -142,31 +159,36 @@
         "description":"",
         "display":true
     },
-    "Logistics performance index: Efficiency of customs clearance process (1=low to 5=high)": {
+    "Logistics customs efficiency": {
+        "source":["Logistics performance index: Efficiency of customs clearance process (1=low to 5=high)"],
         "category": "direct",
         "display":false,
         "icon":"",
         "description":""
     },
-    "Logistics performance index: Frequency with which shipments reach consignee within scheduled or expected time (1=low to 5=high)": {
+    "Logistics reliability": {
+        "source":["Logistics performance index: Frequency with which shipments reach consignee within scheduled or expected time (1=low to 5=high)"],
         "category": "direct",
         "display":false,
         "icon":"",
         "description":""
     },
-    "Logistics performance index: Quality of trade and transport-related infrastructure (1=low to 5=high)": {
+    "Logistics quality": {
+        "source":["Logistics performance index: Quality of trade and transport-related infrastructure (1=low to 5=high)"],
         "category": "direct",
         "display":false,
         "icon":"",
         "description":""
     },
-    "Logistics performance index: Overall (1=low to 5=high)": {
+    "Logistics overall": {
+        "source":["Logistics performance index: Overall (1=low to 5=high)"],
         "category": "direct",
         "display":false,
         "icon":"",
         "description":""
     },
-    "Motor vehicles (per 1,000 people)": {
+    "Vehicles": {
+        "source":["Motor vehicles (per 1,000 people)"],
         "category": "indirect",
         "display":true,
         "icon":"",
@@ -177,7 +199,7 @@
     
 
     "Communication": {
-        "alias":[
+        "source":[
             "Telephone lines (per 100 people)",
             "Mobile cellular subscriptions (per 100 people)",
             "Internet users (per 100 people)"
@@ -187,24 +209,27 @@
         "description":"",
         "display":true
     },
-    "Telephone lines (per 100 people)": {
+    "Communication telephone": {
+        "source":["Telephone lines (per 100 people)"],
         "category": "indirect",
         "display":false,
         "icon":"",
         "description":""
     },
-    "Mobile cellular subscriptions (per 100 people)": {
+    "Communication mobile": {
+        "source":["Mobile cellular subscriptions (per 100 people)"],
         "category": "indirect",
         "display":false,
         "icon":"",
         "description":""
     },
-    "Internet users (per 100 people)": {
+    "Communication Internet": {
+        "source":["Internet users (per 100 people)"],
         "category": "indirect",
         "display":false,
         "icon":"",
         "description":""
-    },
+    }
     
     
     
