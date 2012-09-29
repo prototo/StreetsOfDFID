@@ -37,14 +37,15 @@ for n, line in enumerate(csv.reader(open(ROOT+DATA))):
         if year:
             data.append(float(year))
 
-    if indicator_name in fields:
-        if "data" not in fields[indicator_name]:
-            fields[indicator_name]["data"] = {}
+    for field_id in fields:
+        if indicator_name in fields[field_id]["source"]:
+            if "data" not in fields[field_id]:
+                fields[field_id]["data"] = {}
 
-        if len(data):
-            fields[indicator_name]["data"][country_name] = sum(data) / len(data)
-        else:
-            fields[indicator_name]["data"][country_name] = 0
+            if len(data):
+                fields[field_id]["data"][country_name] = sum(data) / len(data)
+            else:
+                fields[field_id]["data"][country_name] = 0
 
 for n, indicator_name in enumerate(fields):
     if progressbar: pbar.update(n/float(len(fields))*100)
