@@ -12,7 +12,6 @@ $(function() {
     },
 
     toggle : function() {
-      console.log("toggle");
       this.set({enabled : !this.get('enabled')});
     }
   });
@@ -20,7 +19,7 @@ $(function() {
   // Flag model
   FlagModel = Backbone.Model.extend({
     defaults : {
-      src : "../img/icons/Ackbar.png",
+      src : "../img/icons/Chewbacca.png",
       enabled : false
     },
 
@@ -94,13 +93,23 @@ $(function() {
   // Flag view
   FlagView = Backbone.View.extend({
     tagName : 'span',
-
+    className : 'flag',
+    
     events : {
-      'click .flag' : 'toggle'
+      'click' : 'toggle'
     },
     
+    initialize : function() {
+      this.$el.css('background-image', 'url('+this.model.get('src')+')');
+    },
+
+    render : function() {
+      return this;
+    },
+
     toggle : function() {
       this.model.toggle();
+      this.$el.toggleClass('enabled', this.model.get('enabled'));
     }
   });
 
@@ -134,11 +143,7 @@ $(function() {
       icons.on('add', this.addIcon, this);
       flags.on('add', this.addFlag, this);
 
-      icons.add({});
-      icons.add({});
-      icons.add({});
-      icons.add({});
-      icons.add({});
+      _.each(_.range(10), function() { icons.add({}); flags.add({}); });
     },
 
     render : function() {
@@ -151,10 +156,16 @@ $(function() {
     },
 
     addFlag : function(flag) {
-      var view = new FlagView({model : icon});
-      $('#left-row').append( view.render().el );
+      var view = new FlagView({model : flag});
+      $('#left-bar').append( view.render().el );
     }
   });
 
   var app = new AppView;
+  
+  $('#left-bar').mCustomScrollbar({
+  });
+  $('#top-bar').mCustomScrollbar({
+    horizontalScroll: true
+  });
 });
