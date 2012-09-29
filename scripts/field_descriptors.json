@@ -109,7 +109,49 @@
         "icon":"",
         "description":"",
         "scale":"inverted"
+    },
+    "Liner shipping connectivity index (maximum value in 2004 = 100)": {
+        "category": "direct",
+        "display":true,
+        "icon":"",
+        "description":""
+    },
+
+    "Logistics": {
+        "alias":[
+            "Logistics performance index: Efficiency of customs clearance process (1=low to 5=high)",
+            "Logistics performance index: Frequency with which shipments reach consignee within scheduled or expected time (1=low to 5=high)",
+            "Logistics performance index: Quality of trade and transport-related infrastructure (1=low to 5=high)"
+        ],
+        "category": "direct",
+        "icon":"",
+        "description":"",
+        "display":true
+    },
+    "Logistics performance index: Efficiency of customs clearance process (1=low to 5=high)": {
+        "category": "direct",
+        "display":false,
+        "icon":"",
+        "description":""
+    },
+    "Logistics performance index: Frequency with which shipments reach consignee within scheduled or expected time (1=low to 5=high)": {
+        "category": "direct",
+        "display":false,
+        "icon":"",
+        "description":""
+    },
+    "Logistics performance index: Quality of trade and transport-related infrastructure (1=low to 5=high)": {
+        "category": "direct",
+        "display":false,
+        "icon":"",
+        "description":""
+    },
+    "Logistics performance index: Overall (1=low to 5=high)": {
+        "category": "direct",
+        "display":false,
+        "icon":"",
+        "description":""
     }
-
-
+    
+    
 }
