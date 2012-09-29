@@ -5,8 +5,9 @@ $(function() {
   // Icon model
   IconModel = Backbone.Model.extend({
     defaults : {
-      src : "../img/icons/Ackbar.png",
-      enabled : false
+      src : "../img/icons/truck.png",
+      enabled : false,
+      tooltip : "This is an icon"
     },
 
     initialize : function() {
@@ -22,7 +23,8 @@ $(function() {
   FlagModel = Backbone.Model.extend({
     defaults : {
       src : "../img/icons/Chewbacca.png",
-      enabled : false
+      enabled : false,
+      name : "country"
     },
 
     initialize : function() {
@@ -93,16 +95,26 @@ $(function() {
     
     initialize : function() {
       this.$el.css('background-image', 'url('+this.model.get('src')+')');
+      this.model.bind('change', this.render, this);
+      this.model.bind('change', this.updateRows, this);
     },
 
     render : function() {
+      var enabled = this.model.get('enabled');
+      this.$el.toggleClass('enabled', enabled).simpletip({
+        content : this.model.get('tooltip'),
+        fixed : true,
+        position : 'bottom'
+      });
       return this;
     },
 
     toggle : function() {
       this.model.toggle();
-      var enabled = this.model.get('enabled');
-      this.$el.toggleClass('enabled', enabled);
+    },
+    
+    updateRows : function() {
+      
     }
   });
 
@@ -170,7 +182,7 @@ $(function() {
       rows.on('add', this.addRow, this);
 
       // fake fill the icon and flag lists
-      _.each(_.range(10), function() { icons.add({}); flags.add({flagid:flagid++}); });
+      _.each(_.range(10), function() { icons.add({iconid:flagid}); flags.add({flagid:flagid++}); });
     },
 
     render : function() {
