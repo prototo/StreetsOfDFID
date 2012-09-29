@@ -1,2 +1,3 @@
-Total tax rate (% of commercial profits),tax rate
-Cost of business start-up procedures (% of GNI per capita),start-up cost
+Field,Alias,Cost
+"Total tax rate (% of commercial profits)","tax rate",TRUE
+"Cost of business start-up procedures (% of GNI per capita)","start-up cost",TRUE
