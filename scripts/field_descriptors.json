@@ -88,6 +88,20 @@
         "scale":"inverted",
         "display":false
     },
+    "Fuel exports (% of merchandise exports)": {
+        "category": "export",
+        "icon":"",
+        "description":"",
+        "display":true
+    },
+    "Fuel imports (% of merchandise imports)": {
+        "category": "import",
+        "icon":"",
+        "description":"",
+        "display":true
+    },
+
+
 
 
     "Container port traffic (TEU: 20 foot equivalent units)": {
@@ -151,7 +165,47 @@
         "display":false,
         "icon":"",
         "description":""
-    }
+    },
+    "Motor vehicles (per 1,000 people)": {
+        "category": "indirect",
+        "display":true,
+        "icon":"",
+        "description":""
+    },
+
+
+    
+
+    "Communication": {
+        "alias":[
+            "Telephone lines (per 100 people)",
+            "Mobile cellular subscriptions (per 100 people)",
+            "Internet users (per 100 people)"
+        ],
+        "category": "indirect",
+        "icon":"",
+        "description":"",
+        "display":true
+    },
+    "Telephone lines (per 100 people)": {
+        "category": "indirect",
+        "display":false,
+        "icon":"",
+        "description":""
+    },
+    "Mobile cellular subscriptions (per 100 people)": {
+        "category": "indirect",
+        "display":false,
+        "icon":"",
+        "description":""
+    },
+    "Internet users (per 100 people)": {
+        "category": "indirect",
+        "display":false,
+        "icon":"",
+        "description":""
+    },
+    
     
     
 }
