@@ -4,6 +4,18 @@
 // VARS
 @bar-width: 100px;
 
+@blue : #0B61A4;
+@lightblue : lighten(@blue, 20%);
+@darkblue : darken(@blue, 20%);
+@yellow : #FFBF00;
+@lightyellow : lighten(@yellow, 20%);
+@darkyellow : darken(@yellow, 20%);
+@orange : #FF4900;
+@lightorange : lighten(@orange, 20%);
+@darkorange : darken(@orange, 20%);
+
+@background : #222;
+
 // STYLE
 HTML, BODY {
   margin: 0;
@@ -16,7 +28,7 @@ HTML, BODY {
   }
 
   DIV#content {
-    .gradient(#222, #303030, #202020);
+    .gradient(@background, lighten(@background, 10%), @background);
     width: 100%;
     height: 100%;
     padding: 0;
@@ -25,11 +37,13 @@ HTML, BODY {
     DIV#left-bar {
       background: #fff;
       position: fixed;
-      top: 0;
+      top: 100px;
       left: 0;
-      width: 100px;
-      height: 100%;
+      bottom: 0;
+      width: 120px;
       border-right: 2px solid black;
+      overflow: auto;
+      padding: 5px 0 0 0;
     }
 
     DIV#top-bar {
@@ -40,6 +54,7 @@ HTML, BODY {
       border-bottom: 2px solid black;
       height: 100px;
       width: 100%;
+      overflow: auto;
     }
 
     DIV#rows {
@@ -56,18 +71,29 @@ HTML, BODY {
   .rounded(5px);
   height: 80px;
   width: 80px;
-  margin: 10px;
+  margin: 10px 5px;
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: center center;
   display: inline-block;
-  border: 1px solid black;
+  border: 2px solid #000;
+  cursor: pointer;
 
   &.enabled {
-    background-color: pink;
+    background-color: @lightyellow;
+    border-color: @darkyellow;
   }
 }
 
+.flag {
+  .icon;
+  margin: 5px 10px;
+  
+  &.enabled {
+    background-color: @lightorange;
+    border-color: @darkorange;
+  }
+}
 
 /* bar types */
 .bar {
