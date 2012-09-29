@@ -1,3 +1,6 @@
+// IMPORTS
+@import "elements.less";
+
 // VARS
 @bar-width: 100px;
 
@@ -13,15 +16,15 @@ HTML, BODY {
   }
 
   DIV#content {
+    .gradient(#222, #303030, #202020);
     width: 100%;
     height: 100%;
     padding: 0;
     margin: 0;
-    background: #222;
 
     DIV#left-bar {
       background: #fff;
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
       width: 100px;
@@ -31,12 +34,16 @@ HTML, BODY {
 
     DIV#top-bar {
       background: #fff;
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
       border-bottom: 2px solid black;
       height: 100px;
       width: 100%;
+    }
+
+    DIV#rows {
+      margin: 100px 0 0 100px;
     }
   }
 
@@ -46,7 +53,17 @@ HTML, BODY {
 }
 
 .icon {
-  #truck {
-    
+  .rounded(5px);
+  height: 80px;
+  width: 80px;
+  margin: 10px;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  display: inline-block;
+  border: 1px solid black;
+
+  &.enabled {
+    background-color: pink;
   }
 }
