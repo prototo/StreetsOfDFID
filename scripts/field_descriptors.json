@@ -43,7 +43,7 @@
     "Tax revenue": {
         "source":["Tax revenue (% of GDP)"],
         "category": "indirect",
-        "icon":"",
+        "icon":"Tax",
         "description":"",
         "scale":"inverted",
         "display":true
@@ -51,7 +51,7 @@
     "Taxes on imports": {
         "source":["Taxes on international trade (% of revenue)"],
         "category": "import",
-        "icon":"",
+        "icon":"Tax",
         "description":"",
         "scale":"inverted",
         "display":true
@@ -59,7 +59,7 @@
     "Taxes on exports": {
         "source":["Taxes on exports (% of tax revenue)"],
         "category": "export",
-        "icon":"",
+        "icon":"Tax",
         "description":"",
         "scale":"inverted",
         "display":true
@@ -73,35 +73,35 @@
             "Public spending on education, total (% of government expenditure)"
         ],
         "category": "indirect",
-        "icon":"",
+        "icon":"Edjumication",
         "description":"",
         "display":true
     },
     "Education spending": {
         "source":["Public spending on education, total (% of government expenditure)"],
         "category": "indirect",
-        "icon":"",
+        "icon":"Edjumication",
         "description":"",
         "display":false
     },
     "Education primary": {
         "source":["Labor force with primary education (% of total)"],
         "category": "indirect",
-        "icon":"",
+        "icon":"Edjumication",
         "description":"",
         "display":false
     },
     "Education secondary": {
         "source":["Labor force with secondary education (% of total)"],
         "category": "indirect",
-        "icon":"",
+        "icon":"Edjumication",
         "description":"",
         "display":false
     },
     "Education tertiary": {
         "source": ["Labor force with tertiary education (% of total)"],
         "category": "indirect",
-        "icon":"",
+        "icon":"Edjumication",
         "description":"",
         "display":false
     },
@@ -112,7 +112,7 @@
             "Pump price for gasoline (US$ per liter)"
         ],
         "category": "direct",
-        "icon":"",
+        "icon":"Fuel",
         "description":"",
         "scale":"inverted",
         "display":true
@@ -120,7 +120,7 @@
     "Fuel price diesel": {
         "source":["Pump price for diesel fuel (US$ per liter)"],
         "category": "direct",
-        "icon":"",
+        "icon":"Fuel",
         "description":"",
         "scale":"inverted",
         "display":false
@@ -128,7 +128,7 @@
     "Fuel price petrol": {
         "source": ["Pump price for gasoline (US$ per liter)"],
         "category": "direct",
-        "icon":"",
+        "icon":"Fuel",
         "description":"",
         "scale":"inverted",
         "display":false
@@ -136,14 +136,14 @@
     "Fuel exports": {
         "source":["Fuel exports (% of merchandise exports)"],
         "category": "export",
-        "icon":"",
+        "icon":"Fuel",
         "description":"",
         "display":true
     },
     "Fuel imports": {
         "source":["Fuel imports (% of merchandise imports)"],
         "category": "import",
-        "icon":"",
+        "icon":"Fuel",
         "description":"",
         "display":true
     },
@@ -193,7 +193,7 @@
             "Logistics performance index: Quality of trade and transport-related infrastructure (1=low to 5=high)"
         ],
         "category": "direct",
-        "icon":"",
+        "icon":"broombroom",
         "description":"",
         "display":true
     },
@@ -201,35 +201,35 @@
         "source":["Logistics performance index: Efficiency of customs clearance process (1=low to 5=high)"],
         "category": "direct",
         "display":false,
-        "icon":"",
+        "icon":"broombroom",
         "description":""
     },
     "Logistics reliability": {
         "source":["Logistics performance index: Frequency with which shipments reach consignee within scheduled or expected time (1=low to 5=high)"],
         "category": "direct",
         "display":false,
-        "icon":"",
+        "icon":"broombroom",
         "description":""
     },
     "Logistics quality": {
         "source":["Logistics performance index: Quality of trade and transport-related infrastructure (1=low to 5=high)"],
         "category": "direct",
         "display":false,
-        "icon":"",
+        "icon":"broombroom",
         "description":""
     },
     "Logistics overall": {
         "source":["Logistics performance index: Overall (1=low to 5=high)"],
         "category": "direct",
         "display":false,
-        "icon":"",
+        "icon":"broombroom",
         "description":""
     },
     "Vehicles": {
         "source":["Motor vehicles (per 1,000 people)"],
         "category": "indirect",
         "display":true,
-        "icon":"",
+        "icon":"Transport",
         "description":""
     },
 
@@ -250,21 +250,21 @@
         "source":["Telephone lines (per 100 people)"],
         "category": "indirect",
         "display":false,
-        "icon":"",
+        "icon":"communication",
         "description":""
     },
     "Communication mobile": {
         "source":["Mobile cellular subscriptions (per 100 people)"],
         "category": "indirect",
         "display":false,
-        "icon":"",
+        "icon":"communication",
         "description":""
     },
     "Communication Internet": {
         "source":["Internet users (per 100 people)"],
         "category": "indirect",
         "display":false,
-        "icon":"",
+        "icon":"communication",
         "description":""
     },
     
@@ -303,7 +303,7 @@
         ],
         "category": "direct",
         "display":true,
-        "icon":"",
+        "icon":"Paperwork",
         "description":"",
         "scale":"inverted"
     },
@@ -311,7 +311,7 @@
         "source":["Documents to export (number)"],
         "category": "export",
         "display":true,
-        "icon":"",
+        "icon":"Paperwork",
         "description":"",
         "scale":"inverted"
     },
@@ -319,7 +319,7 @@
         "source":["Documents to import (number)"],
         "category": "import",
         "display":true,
-        "icon":"",
+        "icon":"Paperwork",
         "description":"",
         "scale":"inverted"
     },
@@ -333,7 +333,7 @@
         ],
         "category": "indirect",
         "display":true,
-        "icon":"",
+        "icon":"popple",
         "description":""
     },
     "Unemployment": {
@@ -375,7 +375,7 @@
         ],
         "category": "indirect",
         "display":true,
-        "icon":"",
+        "icon":"equality",
         "description":""
     }
     
