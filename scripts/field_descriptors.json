@@ -11,14 +11,14 @@
     "Service exports": {
         "source":["Service exports (BoP, current US$)"],
         "category":"export",
-        "icon":"",
+        "icon":"services",
         "description":"",
         "display":true
     },
     "Service imports": {
         "source":["Service imports (BoP, current US$)"],
         "category":"import",
-        "icon":"",
+        "icon":"services",
         "description":"",
         "display":true
     },
@@ -26,14 +26,14 @@
     "Technology goods export": {
         "source":["ICT goods exports (% of total goods exports)"],
         "category":"export",
-        "icon":"",
+        "icon":"technology",
         "description":"",
         "display":true
     },
     "Technology good import": {
         "source":["ICT goods imports (% total goods imports)"],
         "category":"import",
-        "icon":"",
+        "icon":"technology",
         "description":"",
         "display":true
     },
@@ -164,14 +164,14 @@
         "source":["Container port traffic (TEU: 20 foot equivalent units)"],
         "category": "direct",
         "display":true,
-        "icon":"",
+        "icon":"Freights",
         "description":""
     },
     "Container cost export": {
         "source":["Cost to export (US$ per container)"],
         "category": "export",
         "display":true,
-        "icon":"",
+        "icon":"Freights",
         "description":"",
         "scale":"inverted"
     },
@@ -179,7 +179,7 @@
         "source":["Cost to import (US$ per container)"],
         "category": "import",
         "display":true,
-        "icon":"",
+        "icon":"Freights",
         "description":"",
         "scale":"inverted"
     },
@@ -190,7 +190,7 @@
         ],
         "category": "direct",
         "display":true,
-        "icon":"",
+        "icon":"Shipping",
         "description":""
     },
 
@@ -282,7 +282,7 @@
         "source":["Average time to clear exports through customs (days)"],
         "category": "direct",
         "display":true,
-        "icon":"",
+        "icon":"time",
         "description":"",
         "scale":"inverted"
     },
@@ -290,7 +290,7 @@
         "source":["Time to export (days)"],
         "category": "export",
         "display":true,
-        "icon":"",
+        "icon":"time",
         "description":"",
         "scale":"inverted"
     },
@@ -298,7 +298,7 @@
         "source":["Time to import (days)"],
         "category": "import",
         "display":true,
-        "icon":"",
+        "icon":"time",
         "description":"",
         "scale":"inverted"
     },
@@ -350,7 +350,7 @@
         "scale":"inverted",
         "category": "indirect",
         "display":true,
-        "icon":"",
+        "icon":"Unemployment",
         "description":""
     },
     "Employment agriculture": {
@@ -418,5 +418,23 @@
         "display":true,
         "icon":"Electricity",
         "description":""
+    },
+    
+    "Food imports": {
+        "source":["Food imports (% of merchandise imports)"],
+        "category": "import",
+        "display":true,
+        "icon":"produce",
+        "description":""
+    },    
+    "Food exports": {
+        "source":["Food exports (% of merchandise exports)"],
+        "category": "import",
+        "display":true,
+        "icon":"produce",
+        "description":""
     }
+
+
+   
 }
