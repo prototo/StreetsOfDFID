@@ -12,7 +12,7 @@ for n, field_id in enumerate(fields):
     f = fields[field_id]
 
     fp.write(
-        '.indicator.%s {.border-image("%s/%s", 0, 0, repeat);}\n' %
+        '.indicator.%s {.border-image("%s/%s", 1, 1, repeat);}\n' %
         (field_id.replace(" ", ""), f["category"], f["icon"])
     )
 
