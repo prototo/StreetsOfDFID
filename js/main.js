@@ -1,17 +1,19 @@
 $(function() {
-  var flagid = 1;
+  var flagid = 1, country_data, field_descriptors,
+  display_countries = ['Afghanistan', 'Belgium', 'Chad', 'Cuba', 'Dominican Republic', 'El Salvador', 'Finland', 'Guam', 'Honduras', 'India', 'Japan', 'Kenya', 'Liberia', 'Malaysia', 'Nigeria', 'Oman', 'Poland', 'Romania', 'Singapore', 'Tonga', 'United States', 'United Kingdom', 'Zambia'];
   
   /* MODELS */
   // Icon model
   IconModel = Backbone.Model.extend({
     defaults : {
-      src : "../img/icons/truck.png",
+      icon : "truck",
       enabled : false,
-      tooltip : "This is an icon"
+      name : 'Indicator',
+      tooltip : "This is an icon",
     },
 
     initialize : function() {
-      
+      this.set({tooltip:this.get('name')});
     },
 
     toggle : function() {
@@ -22,7 +24,7 @@ $(function() {
   // Flag model
   FlagModel = Backbone.Model.extend({
     defaults : {
-      src : "../img/icons/Chewbacca.png",
+      icon : "Chewbacca",
       enabled : false,
       name : "country"
     },
@@ -94,9 +96,8 @@ $(function() {
     },
     
     initialize : function() {
-      this.$el.css('background-image', 'url('+this.model.get('src')+')');
+      this.$el.css('background-image', 'url(../img/icons/'+this.model.get('icon')+'.png)');
       this.model.bind('change', this.render, this);
-      this.model.bind('change', this.updateRows, this);
     },
 
     render : function() {
@@ -111,10 +112,9 @@ $(function() {
 
     toggle : function() {
       this.model.toggle();
-    },
-    
-    updateRows : function() {
-      
+      var enabled = this.model.get('enabled');
+      console.log(this.model);
+      $('.indicator.'+this.model.get('className')).toggle(enabled);
     }
   });
 
@@ -128,7 +128,7 @@ $(function() {
     },
     
     initialize : function() {
-      this.$el.css('background-image', 'url('+this.model.get('src')+')');
+      this.$el.css('background-image', 'url(../img/flags/'+this.model.get('icon')+'.png)');
       this.model.bind('change', this.render, this);
     },
 
@@ -145,22 +145,29 @@ $(function() {
 
   // Row view
   RowView = Backbone.View.extend({
-    tagName : 'span',
+    tagName : 'div',
     className : 'row',
-    template : _.template($('#row-template').html()),
 
     events : {
       'click .remove' : 'clear'
     },
 
     initialize : function() {
-      this.model.bind('remove', this.remove, this);
-      this.model.bind('change', this.render, this);
+      var self = this;
+      self.model.bind('remove', self.remove, self);
+      self.model.bind('change', self.render, self);
     },
 
     render : function() {
-      this.$el.html( this.template( this.model.toJSON() ) );
-      return this;
+      var self = this,
+      template = _.template($('#row-template').html());
+      self.$el.html(template(self.model.toJSON()));
+      icons.each(function(icon) {
+        var enabled = icon.get('enabled'),
+        className = icon.get('className');
+        self.$('.indicator.'+className).css('display', enabled ? 'inline-block' : 'none');
+      });
+      return self;
     },
 
     clear : function() {
@@ -171,18 +178,35 @@ $(function() {
       flag.toggle();
     }
   });
-  
+
   // App view
   AppView = Backbone.View.extend({
     el : $('#rows'),
 
     initialize : function() {
       icons.on('add', this.addIcon, this);
+      icons.on('change', this.updateRows, this);
       flags.on('add', this.addFlag, this);
       rows.on('add', this.addRow, this);
 
-      // fake fill the icon and flag lists
-      _.each(_.range(10), function() { icons.add({iconid:flagid}); flags.add({flagid:flagid++}); });
+      _.each(field_descriptors, function(data, name) {
+        if (!data.display) return;
+        icons.add({
+          name : name,
+          category : data.category,
+          tooltip : data.description,
+          className : data.class_name,
+          data : data.data
+        });
+      });
+      
+      _.each(display_countries, function(name) {
+        flags.add({
+          flagid : flagid++,
+          name : name,
+          icon : name.replace(/\W/gi, "_")
+        });
+      });
     },
 
     render : function() {
@@ -202,14 +226,32 @@ $(function() {
     addRow : function(row) {
       var view = new RowView({model : row});
       $('#rows').append( view.render().el );
+    },
+    
+    updateRows : function(indicator) {
+      var class_name = indicator.get('class_name'),
+      enabled = indicator.get('enabled');
+      $('.'+class_name).show();
     }
   });
-
-  var app = new AppView;
   
-  $('#left-bar').mCustomScrollbar({
-  });
-  $('#top-bar').mCustomScrollbar({
-    horizontalScroll: true
+  $.getJSON('../scripts/country_data.json', function(json) {
+    country_data = json;
+    $.getJSON('../scripts/field_descriptors.json', function(json) {
+      field_descriptors = json;
+      _.each(field_descriptors, function(data, name) {
+        if (!data.display) return;
+        field_descriptors[name].class_name = name.replace(/\W/gi, "");
+        var span = $('<span>').addClass('indicator').addClass(field_descriptors[name].class_name).hide();
+        $('#row-template').append(span);
+      });
+    
+      console.log($('#row-template'));
+      var app = new AppView;
+      $('#left-bar').mCustomScrollbar();
+      $('#top-bar').mCustomScrollbar({
+        horizontalScroll: true
+      });
+    });
   });
 });
