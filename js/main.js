@@ -196,6 +196,7 @@ $(function() {
       _.each(field_descriptors, function(data, name) {
         if (!data.display || !data.icon) return;
         icons.add({
+          name : name,
           indicator_name : name,
           category : data.category,
           tooltip : name,
@@ -245,15 +246,15 @@ $(function() {
       class_name = indicator.get('className'),
       enabled = indicator.get('enabled');
       rows.each(function(row) {
-        var $row = $('.row[name="'+row.get('country')+'"]')
-        var $indicator = $row.find('.indicator.'+class_name),
-        full_width = country_data[indicator.get('indicator_name')].data[row.get('country')] * 300;
+        var $row = $('.row[name="'+row.get('country')+'"]');
+        var $indicator = $row.find('.indicator.'+class_name);
+        var full_width = country_data[indicator.get('indicator_name')].data[row.get('country')] * 300;
         _.delay(function() { $indicator.css('width', full_width+'px') }, 1000);
       });
     }
   });
   
-  $.getJSON('./scripts/country_data.json', function(json) {
+  $.getJSON('./data/fields.json', function(json) {
     country_data = json;
     $.getJSON('./scripts/field_descriptors.json', function(json) {
       field_descriptors = json;
