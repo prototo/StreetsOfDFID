@@ -105,7 +105,7 @@ $(function() {
     render : function() {
       var enabled = this.model.get('enabled');
       this.$el.toggleClass('enabled', enabled).simpletip({
-        content : this.model.get('tooltip'),
+        content : this.model.get('indicator_name'),
         position : 'bottom'
       });
       return this;
@@ -198,7 +198,7 @@ $(function() {
         icons.add({
           indicator_name : name,
           category : data.category,
-          tooltip : data.description,
+          tooltip : name,
           className : data.class_name,
           icon : data.icon
         });
@@ -230,6 +230,14 @@ $(function() {
     addRow : function(row) {
       var view = new RowView({model : row});
       $('#rows').append( view.render().el );
+      var $row = $('.row[name="'+row.get('country')+'"]'),
+      $indicators = $row.find('.indicator:visible');
+      _.each($indicators, function(indicator) {
+        indicator = $(indicator);
+        var name = indicator.attr('name'),
+        full_width = country_data[name].data[row.get('country')] * 300;
+        _.delay(function() { indicator.css('width', full_width+'px') }, 1000);
+      });
     },
     
     updateRows : function(indicator) {
@@ -237,9 +245,10 @@ $(function() {
       class_name = indicator.get('className'),
       enabled = indicator.get('enabled');
       rows.each(function(row) {
-        var $indicator = self.$el.find('.indicator.'+class_name),
+        var $row = $('.row[name="'+row.get('country')+'"]')
+        var $indicator = $row.find('.indicator.'+class_name),
         full_width = country_data[indicator.get('indicator_name')].data[row.get('country')] * 300;
-        _.delay(function() {$indicator.css('width', full_width+'px')}, 1000);
+        _.delay(function() { $indicator.css('width', full_width+'px') }, 1000);
       });
     }
   });
@@ -253,8 +262,9 @@ $(function() {
         data.class_name = name.replace(/\W/gi, "");
         var span = $('<span>').addClass('indicator')
                               .addClass(data.class_name)
+                              .attr('name', name)
                               .hide();
-                              //.css('background-image', 'url(./img/icons/shift_'+data.category+'/'+(data.icon||'truck')+'.png)')
+                              // .css('background-image', 'url(./img/icons/shift_'+data.category+'/'+(data.icon)+'.png)')
         $('#row-template').append(span);
       });
     
