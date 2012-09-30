@@ -9,7 +9,7 @@ except:
 
 ROOT="./source/"
 LEX="WDI data lexicon.csv"
-DATA="WDI_GDF_Data.csv"
+DATA="WDI datasets.csv"
 
 if progressbar: pbar = progressbar.ProgressBar().start()
 
@@ -25,27 +25,25 @@ for n, line in enumerate(csv.reader(open(ROOT+LEX))):
     if idx in fields:
         fields[idx]["description"] = str(data[0])
 
+indicators = []
 for n, line in enumerate(csv.reader(open(ROOT+DATA))):
-    if progressbar: pbar.update(n/309961.0*100)
+    if progressbar: pbar.update(n/194.0*100)
 
-    country_name = line[0]
-    country_code = line[1]
-    indicator_name = line[2]
-    indicator_code = line[3]
-    data = []
-    for year in line[4:]:
-        if year:
-            data.append(float(year))
+    if n == 0:
+        indicators = line[2:]
+        continue
 
-    for field_id in fields:
-        if indicator_name in fields[field_id]["source"]:
-            if "data" not in fields[field_id]:
-                fields[field_id]["data"] = {}
-
-            if len(data):
-                fields[field_id]["data"][country_name] = sum(data) / len(data)
-            else:
-                fields[field_id]["data"][country_name] = 0
+    country_area = line[0]
+    country_name = line[1]
+    for col, indicator_name in enumerate(indicators, 2):
+        for field_id in fields:
+            if indicator_name in fields[field_id]["source"]:
+                if "data" not in fields[field_id]:
+                    fields[field_id]["data"] = {}
+                if line[col]:
+                    fields[field_id]["data"][country_name] = float(line[col].replace(",", ""))
+                else:
+                    fields[field_id]["data"][country_name] = float(-1)
 
 for n, field_id in enumerate(fields):
     if progressbar: pbar.update(n/float(len(fields))*100)
