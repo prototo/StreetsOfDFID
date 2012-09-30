@@ -5,7 +5,10 @@
         "category":"direct",
         "icon":"GDP",
         "description":"",
-        "display":true
+        "display":true,
+		"left": 30,
+		"right": 30,
+		"mode": "stretch",
     },
     
     "Service exports": {
