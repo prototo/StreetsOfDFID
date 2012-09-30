@@ -105,8 +105,7 @@ $(function() {
       var enabled = this.model.get('enabled');
       this.$el.toggleClass('enabled', enabled).simpletip({
         content : this.model.get('tooltip'),
-        position : 'bottom',
-        // fixed : true
+        position : 'bottom'
       });
       return this;
     },
@@ -134,7 +133,10 @@ $(function() {
 
     render : function() {
       var enabled = this.model.get('enabled');
-      this.$el.toggleClass('enabled', enabled);
+      this.$el.toggleClass('enabled', enabled).simpletip({
+        content : this.model.get('name'),
+        position : 'right'
+      });
       return this;
     },
 
@@ -190,7 +192,7 @@ $(function() {
       rows.on('add', this.addRow, this);
 
       _.each(field_descriptors, function(data, name) {
-        if (!data.display) return;
+        if (!data.display || !data.icon) return;
         icons.add({
           name : name,
           category : data.category,

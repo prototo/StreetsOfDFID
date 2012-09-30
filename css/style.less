@@ -42,7 +42,7 @@ HTML, BODY {
       bottom: 0;
       width: @left-bar-width;
       border-right: 2px solid black;
-      overflow: auto;
+      overflow: visible;
       padding: 5px 0 0 0;
       z-index: 500;
     }
@@ -66,6 +66,7 @@ HTML, BODY {
       right: 0;
       bottom: 0;
       overflow: scroll;
+      z-index:400;
     }
   }
 
@@ -91,6 +92,10 @@ HTML, BODY {
   &.enabled {
     background-color: @lightyellow;
   }
+  
+  .tooltip {
+    left: 0 !important;
+  }
 }
 
 .flag {
@@ -99,6 +104,11 @@ HTML, BODY {
   
   &.enabled {
     background-color: @lightorange;
+  }
+  
+  .tooltip {
+    top: 0 !important;
+    left: 90px !important;
   }
 }
 
@@ -139,7 +149,6 @@ HTML, BODY {
 .tooltip {
   .rounded(10px);
   .drop-shadow(0, 1px, 2px, 0.8);
-  left: 0 !important;
   position: absolute;
   background-color: @lightblue;
   color: rgba(255, 255, 255, 0.95);

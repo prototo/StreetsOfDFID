@@ -7,7 +7,7 @@
 .mCSB_container.mCS_no_scrollbar{
   margin-right:0;
 }
-#top-bar .mCustomScrollBox {
+#top-bar .mCustomScrollBox, #left-bar .mCustomScrollBox {
   overflow:visible !important;
 }
 .mCustomScrollBox .mCSB_scrollTools{
