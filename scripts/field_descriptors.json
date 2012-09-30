@@ -5,10 +5,7 @@
         "category":"direct",
         "icon":"GDP",
         "description":"",
-        "display":true,
-		"left": 30,
-		"right": 30,
-		"mode": "stretch"
+        "display":true
     },
     
     "Service exports": {
@@ -118,7 +115,10 @@
         "icon":"Fuel",
         "description":"",
         "scale":"inverted",
-        "display":true
+        "display":true,
+		"left": 100,
+		"right": 1,
+		"mode": "stretch"
     },
     "Fuel price diesel": {
         "source":["Pump price for diesel fuel (US$ per liter)"],
@@ -141,14 +141,20 @@
         "category": "export",
         "icon":"Fuel",
         "description":"",
-        "display":true
+        "display":true,
+		"left": 100,
+		"right": 1,
+		"mode": "stretch"
     },
     "Fuel imports": {
         "source":["Fuel imports (% of merchandise imports)"],
         "category": "import",
         "icon":"Fuel",
         "description":"",
-        "display":true
+        "display":true,
+		"left": 100,
+		"right": 1,
+		"mode": "stretch"
     },
 
 
