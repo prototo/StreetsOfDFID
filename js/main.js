@@ -40,7 +40,8 @@ $(function() {
       self.set({enabled : enabled});
       if (enabled) {
         rows.add({
-          flagid : self.get('flagid')
+          flagid : self.get('flagid'),
+          country : self.get('name')
         });
       } else {
         var row = rows.find(function(row) {
@@ -163,11 +164,12 @@ $(function() {
     render : function() {
       var self = this,
       template = _.template($('#row-template').html());
-      self.$el.html(template(self.model.toJSON()));
+      self.$el.html(template(self.model.toJSON())).attr('name', self.model.get('country'));
       icons.each(function(icon) {
         var enabled = icon.get('enabled'),
-        className = icon.get('className');
-        self.$('.indicator.'+className).css('display', enabled ? 'inline-block' : 'none');
+        className = icon.get('className'),
+        $indicator = self.$('.indicator.'+className);
+        $indicator.css('display', enabled ? 'inline-block' : 'none');
       });
       return self;
     },
@@ -194,11 +196,10 @@ $(function() {
       _.each(field_descriptors, function(data, name) {
         if (!data.display || !data.icon) return;
         icons.add({
-          name : name,
+          indicator_name : name,
           category : data.category,
           tooltip : data.description,
           className : data.class_name,
-          data : data.data,
           icon : data.icon
         });
       });
@@ -232,9 +233,14 @@ $(function() {
     },
     
     updateRows : function(indicator) {
-      var class_name = indicator.get('class_name'),
+      var self = this,
+      class_name = indicator.get('className'),
       enabled = indicator.get('enabled');
-      $('.'+class_name).show();
+      rows.each(function(row) {
+        var $indicator = self.$el.find('.indicator.'+class_name),
+        full_width = country_data[indicator.get('indicator_name')].data[row.get('country')] * 300;
+        _.delay(function() {$indicator.css('width', full_width+'px')}, 1000);
+      });
     }
   });
   
