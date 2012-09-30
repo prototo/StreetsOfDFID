@@ -343,7 +343,10 @@
         "category": "indirect",
         "display":true,
         "icon":"population",
-        "description":""
+        "description":"",
+		"left": 30,
+		"right": 30,
+		"mode": "repeat"
     },
     "Unemployment": {
         "source":["Unemployment, total (% of total labor force)"],
