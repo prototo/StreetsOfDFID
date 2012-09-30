@@ -105,8 +105,8 @@ $(function() {
       var enabled = this.model.get('enabled');
       this.$el.toggleClass('enabled', enabled).simpletip({
         content : this.model.get('tooltip'),
-        fixed : true,
-        position : 'bottom'
+        position : 'bottom',
+        // fixed : true
       });
       return this;
     },
@@ -114,7 +114,6 @@ $(function() {
     toggle : function() {
       this.model.toggle();
       var enabled = this.model.get('enabled');
-      console.log(this.model);
       $('.indicator.'+this.model.get('className')).toggle(enabled);
     }
   });
@@ -243,7 +242,6 @@ $(function() {
       field_descriptors = json;
       _.each(field_descriptors, function(data, name) {
         if (!data.display) return;
-        console.log(data);
         data.class_name = name.replace(/\W/gi, "");
         var span = $('<span>').addClass('indicator')
                               .addClass(data.class_name)
