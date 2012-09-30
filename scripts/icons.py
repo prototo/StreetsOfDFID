@@ -12,8 +12,8 @@ for n, field_id in enumerate(fields):
     f = fields[field_id]
 
     fp.write(
-        '.indicator.%s {.border-image("%s/%s", 1, 1, repeat);}\n' %
-        (field_id.replace(" ", ""), f["category"], f["icon"])
+        '.indicator.%s {.border-image("%s/%s", %s, %s, %s);}\n' %
+        (field_id.replace(" ", ""), f["category"], f["icon"], f.get("left", 1), f.get("right", 1), f.get("scale", "repeat"))
     )
 
 fp.close()
