@@ -97,7 +97,7 @@ $(function() {
     },
     
     initialize : function() {
-      this.$el.css('background-image', 'url(../img/icons/'+this.model.get('icon')+'.png)');
+      this.$el.css('background-image', 'url(./img/icons/'+this.model.get('icon')+'.png)');
       this.model.bind('change', this.render, this);
     },
 
@@ -127,7 +127,7 @@ $(function() {
     },
     
     initialize : function() {
-      this.$el.css('background-image', 'url(../img/flags/'+this.model.get('icon')+'.png)');
+      this.$el.css('background-image', 'url(./img/flags/'+this.model.get('icon')+'.png)');
       this.model.bind('change', this.render, this);
     },
 
@@ -238,16 +238,16 @@ $(function() {
     }
   });
   
-  $.getJSON('../scripts/country_data.json', function(json) {
+  $.getJSON('./scripts/country_data.json', function(json) {
     country_data = json;
-    $.getJSON('../scripts/field_descriptors.json', function(json) {
+    $.getJSON('./scripts/field_descriptors.json', function(json) {
       field_descriptors = json;
       _.each(field_descriptors, function(data, name) {
         if (!data.display) return;
         data.class_name = name.replace(/\W/gi, "");
         var span = $('<span>').addClass('indicator')
                               .addClass(data.class_name)
-                              .css('background-image', 'url(../img/icons/shift_'+data.category+'/'+(data.icon||'truck')+'.png)')
+                              .css('background-image', 'url(./img/icons/shift_'+data.category+'/'+(data.icon||'truck')+'.png)')
                               .hide();
         $('#row-template').append(span);
       });
