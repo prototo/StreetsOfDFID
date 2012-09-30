@@ -116,9 +116,9 @@
         "description":"",
         "scale":"inverted",
         "display":true,
-		"left": 1,
-		"right": 100,
-		"mode": "repeat"
+		"left": 100,
+		"right": 1,
+		"mode": "stretch"
     },
     "Fuel price diesel": {
         "source":["Pump price for diesel fuel (US$ per liter)"],
@@ -142,9 +142,9 @@
         "icon":"Fuel",
         "description":"",
         "display":true,
-		"left": 1,
-		"right": 100,
-		"mode": "repeat"
+		"left": 100,
+		"right": 1,
+		"mode": "stretch"
     },
     "Fuel imports": {
         "source":["Fuel imports (% of merchandise imports)"],
@@ -152,9 +152,9 @@
         "icon":"Fuel",
         "description":"",
         "display":true,
-		"left": 1,
-		"right": 100,
-		"mode": "repeat"
+		"left": 100,
+		"right": 1,
+		"mode": "stretch"
     },
 
 
