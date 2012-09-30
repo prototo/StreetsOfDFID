@@ -4,6 +4,8 @@ from PIL import Image, ImageOps
 
 path="."
 
+target_height = 100
+
 def limit(v):
     if v>255:
         v=255
@@ -39,6 +41,10 @@ def shift_image(image, shift):
 def shift_file(filename_in, filename_out, shift_key):
     image = Image.open(filename_in)
     image = shift_image(image, shift[shift_key])
+    
+    ratio = target_height/float(image.size[1])
+    image = image.resize((int(image.size[0]*ratio),int(image.size[1]*ratio)) , Image.ANTIALIAS)
+    
     image.save(filename_out)
 
 def shift_files_in(path, shift_key):
