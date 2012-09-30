@@ -3,10 +3,12 @@
 .mCSB_container{
   width:auto;
   margin-right:30px;
-  overflow:hidden;
 }
 .mCSB_container.mCS_no_scrollbar{
   margin-right:0;
+}
+#top-bar .mCustomScrollBox {
+  overflow:visible !important;
 }
 .mCustomScrollBox .mCSB_scrollTools{
   width:16px;
@@ -61,7 +63,6 @@
   height:auto;
   margin-right:0;
   margin-bottom:30px;
-  overflow:hidden;
 }
 .mCSB_horizontal .mCSB_container.mCS_no_scrollbar{
   margin-bottom:0;
@@ -132,17 +133,17 @@
   opacity:1;
 }
 .mCSB_scrollTools .mCSB_draggerRail{
-  background:#ccc; /* rgba fallback */
-}
-.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
   background:#666; /* rgba fallback */
 }
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
+  background:#ccc; /* rgba fallback */
+}
 .mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar{
-  background:#555;
+  background:#bbb;
 }
 .mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,
 .mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar{
-  background:#444;
+  background:#aaa;
 }
 .mCSB_scrollTools .mCSB_buttonUp,
 .mCSB_scrollTools .mCSB_buttonDown,

@@ -2,7 +2,7 @@
 @import "elements.less";
 
 // VARS
-@top-bar-height: 100px;
+@top-bar-height: 110px;
 @left-bar-width: 120px;
 
 @blue : #0B61A4;
@@ -29,14 +29,13 @@ HTML, BODY {
   }
 
   DIV#content {
-    .gradient(@background, lighten(@background, 10%), @background);
     width: 100%;
     height: 100%;
     padding: 0;
     margin: 0;
 
     DIV#left-bar {
-      background: #fff;
+      .gradient(@background, lighten(@background, 1%), @background);
       position: fixed;
       top: @top-bar-height;
       left: 0;
@@ -45,10 +44,11 @@ HTML, BODY {
       border-right: 2px solid black;
       overflow: auto;
       padding: 5px 0 0 0;
+      z-index: 500;
     }
 
     DIV#top-bar {
-      background: #fff;
+      .gradient(@background, lighten(@background, 1%), @background);
       position: fixed;
       top: 0;
       left: 0;
@@ -56,10 +56,16 @@ HTML, BODY {
       height: @top-bar-height;
       width: 100%;
       overflow: visible;
+      z-index: 500;
     }
 
     DIV#rows {
-      margin: @top-bar-height 0 0 @left-bar-width;
+      position: fixed;
+      top: @top-bar-height;
+      left: @left-bar-width;
+      right: 0;
+      bottom: 0;
+      overflow: scroll;
     }
   }
 
@@ -96,11 +102,12 @@ HTML, BODY {
 }
 
 .row {
-  height: 100px;
-  width: 100%;
+  min-height: 100px;
+  min-width: 100%;
   position: relative;
   display: block;
-  border-bottom: 2px solid black;
+  border-bottom: 1px solid #666;
+  border-top: 1px solid #ccc;
   
   .remove {
     display: block;
@@ -115,18 +122,28 @@ HTML, BODY {
   }
 }
 
+.indicator {
+  width: 80px;
+  height: 80px;
+  margin: 10px;
+  background-color: @blue;
+  display: inline-block;
+}
+
 /* simpletip */
 .tooltip {
   .rounded(10px);
-  .drop-shadow(0, 2px, 5px, 0.5);
+  .drop-shadow(0, 1px, 2px, 0.8);
   position: absolute;
   background-color: @lightblue;
-  color: white;
+  color: rgba(255, 255, 255, 0.95);
   font-weight: bold;
-  margin-top: 5px;
   text-align: center;
   font-size: 14px;
   padding: 15px;
+  margin-top: 5px;
+  text-shadow: -1px -1px rgba(0, 0, 0, 0.25);
+  z-index: 1000;
 }
 
 /* bar types */
