@@ -1,0 +1,23 @@
+
+/* bar types */
+.indicator {
+	-webkit-transition: width 1s;
+	-moz-transition: width 1s;
+	-o-transition: width 1s;
+	-ms-transition: width 1s;
+	transition: width 1s;
+
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.border-image(@img: "export/truck", @l: 0px, @r: 0px, @mode: stretch) {
+	border-width: 0px ~"@{r}px" 0px ~"@{l}px";
+       -moz-border-image: url("../img/icons/shift_@{img}.png") 0 @r 0 @l @mode;
+    -webkit-border-image: url("../img/icons/shift_@{img}.png") 0 @r 0 @l @mode;
+         -o-border-image: url("../img/icons/shift_@{img}.png") 0 @r 0 @l @mode;
+            border-image: url("../img/icons/shift_@{img}.png") 0 @r 0 @l fill @mode;
+}
+
+.indicator.TradeofGDP {.border-image("export/truck", 30, 30, stretch);}
