@@ -165,7 +165,10 @@
         "category": "direct",
         "display":true,
         "icon":"Freights",
-        "description":""
+        "description":"",
+		"left": 20,
+		"right": 20,
+		"mode": "stretch"
     },
     "Container cost export": {
         "source":["Cost to export (US$ per container)"],
@@ -173,15 +176,20 @@
         "display":true,
         "icon":"Freights",
         "description":"",
-        "scale":"inverted"
+		"left": 20,
+		"right": 20,
+		"mode": "stretch"
     },
     "Container cost to import": {
         "source":["Cost to import (US$ per container)"],
         "category": "import",
         "display":true,
         "icon":"Freights",
+        "scale":"inverted",
         "description":"",
-        "scale":"inverted"
+		"left": 20,
+		"right": 20,
+		"mode": "stretch"
     },
     "Shipping industry": {
         "source":[
@@ -191,7 +199,10 @@
         "category": "direct",
         "display":true,
         "icon":"Shipping",
-        "description":""
+        "description":"",
+		"left": 20,
+		"right": 20,
+		"mode": "stretch"
     },
 
 
