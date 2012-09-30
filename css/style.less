@@ -42,7 +42,7 @@ HTML, BODY {
       bottom: 0;
       width: @left-bar-width;
       border-right: 2px solid black;
-      overflow: auto;
+      overflow: visible;
       padding: 5px 0 0 0;
       z-index: 500;
     }
@@ -66,6 +66,7 @@ HTML, BODY {
       right: 0;
       bottom: 0;
       overflow: scroll;
+      z-index:400;
     }
   }
 
@@ -86,9 +87,14 @@ HTML, BODY {
   cursor: pointer;
   overflow: visible;
   background-color: white;
+  position: relative;
 
   &.enabled {
     background-color: @lightyellow;
+  }
+  
+  .tooltip {
+    left: 0 !important;
   }
 }
 
@@ -98,6 +104,11 @@ HTML, BODY {
   
   &.enabled {
     background-color: @lightorange;
+  }
+  
+  .tooltip {
+    top: 0 !important;
+    left: 90px !important;
   }
 }
 
@@ -126,8 +137,12 @@ HTML, BODY {
   width: 80px;
   height: 80px;
   margin: 10px;
-  background-color: @blue;
   display: inline-block;
+  
+  .rounded(10px);
+  background-size: 90%;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 /* simpletip */
@@ -141,7 +156,6 @@ HTML, BODY {
   text-align: center;
   font-size: 14px;
   padding: 15px;
-  margin-top: 5px;
   text-shadow: -1px -1px rgba(0, 0, 0, 0.25);
   z-index: 1000;
 }

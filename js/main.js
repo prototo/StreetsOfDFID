@@ -14,6 +14,7 @@ $(function() {
 
     initialize : function() {
       this.set({tooltip:this.get('name')});
+      if (this.get('icon').length === 0) this.set('icon', 'truck');
     },
 
     toggle : function() {
@@ -104,7 +105,6 @@ $(function() {
       var enabled = this.model.get('enabled');
       this.$el.toggleClass('enabled', enabled).simpletip({
         content : this.model.get('tooltip'),
-        fixed : true,
         position : 'bottom'
       });
       return this;
@@ -113,7 +113,6 @@ $(function() {
     toggle : function() {
       this.model.toggle();
       var enabled = this.model.get('enabled');
-      console.log(this.model);
       $('.indicator.'+this.model.get('className')).toggle(enabled);
     }
   });
@@ -134,7 +133,10 @@ $(function() {
 
     render : function() {
       var enabled = this.model.get('enabled');
-      this.$el.toggleClass('enabled', enabled);
+      this.$el.toggleClass('enabled', enabled).simpletip({
+        content : this.model.get('name'),
+        position : 'right'
+      });
       return this;
     },
 
@@ -190,13 +192,14 @@ $(function() {
       rows.on('add', this.addRow, this);
 
       _.each(field_descriptors, function(data, name) {
-        if (!data.display) return;
+        if (!data.display || !data.icon) return;
         icons.add({
           name : name,
           category : data.category,
           tooltip : data.description,
           className : data.class_name,
-          data : data.data
+          data : data.data,
+          icon : data.icon
         });
       });
       
@@ -241,19 +244,21 @@ $(function() {
       field_descriptors = json;
       _.each(field_descriptors, function(data, name) {
         if (!data.display) return;
-        field_descriptors[name].class_name = name.replace(/\W/gi, "");
+        data.class_name = name.replace(/\W/gi, "");
         var span = $('<span>').addClass('indicator')
-                              .addClass(field_descriptors[name].class_name)
-                              .css('background-image', 'url(../img/icons/'+"truck"||field_descriptors[name].class_name+'.png)')
+                              .addClass(data.class_name)
+                              .css('background-image', 'url(../img/icons/shift_'+data.category+'/'+(data.icon||'truck')+'.png)')
                               .hide();
         $('#row-template').append(span);
       });
     
-      console.log($('#row-template'));
       var app = new AppView;
-      $('#left-bar').mCustomScrollbar();
+      $('#left-bar').mCustomScrollbar({
+        scrollButtons: { enable: true }
+      });
       $('#top-bar').mCustomScrollbar({
-        horizontalScroll: true
+        horizontalScroll: true,
+        scrollButtons: { enable: true }
       });
     });
   });
