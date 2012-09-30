@@ -14,7 +14,7 @@ for n, field_id in enumerate(fields):
 
     fp.write(
         '.indicator.%s {.border-image("%s/%s", %s, %s, %s);}\n' %
-        (re.sub("\W", "", field_id), f["category"], f["icon"], f.get("left", 1), f.get("right", 1), f.get("icon-scale", "repeat"))
+        (re.sub("\W", "", field_id), f["category"], f["icon"], f.get("left", 1), f.get("right", 1), f.get("mode", "repeat"))
     )
 
 fp.close()
