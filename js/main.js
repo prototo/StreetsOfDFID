@@ -14,6 +14,7 @@ $(function() {
 
     initialize : function() {
       this.set({tooltip:this.get('name')});
+      if (this.get('icon').length === 0) this.set('icon', 'truck');
     },
 
     toggle : function() {
@@ -196,7 +197,8 @@ $(function() {
           category : data.category,
           tooltip : data.description,
           className : data.class_name,
-          data : data.data
+          data : data.data,
+          icon : data.icon
         });
       });
       
@@ -241,19 +243,22 @@ $(function() {
       field_descriptors = json;
       _.each(field_descriptors, function(data, name) {
         if (!data.display) return;
-        field_descriptors[name].class_name = name.replace(/\W/gi, "");
+        console.log(data);
+        data.class_name = name.replace(/\W/gi, "");
         var span = $('<span>').addClass('indicator')
-                              .addClass(field_descriptors[name].class_name)
-                              .css('background-image', 'url(../img/icons/'+"truck"||field_descriptors[name].class_name+'.png)')
+                              .addClass(data.class_name)
+                              .css('background-image', 'url(../img/icons/shift_'+data.category+'/'+(data.icon||'truck')+'.png)')
                               .hide();
         $('#row-template').append(span);
       });
     
-      console.log($('#row-template'));
       var app = new AppView;
-      $('#left-bar').mCustomScrollbar();
+      $('#left-bar').mCustomScrollbar({
+        scrollButtons: { enable: true }
+      });
       $('#top-bar').mCustomScrollbar({
-        horizontalScroll: true
+        horizontalScroll: true,
+        scrollButtons: { enable: true }
       });
     });
   });
