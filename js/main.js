@@ -247,8 +247,8 @@ $(function() {
         data.class_name = name.replace(/\W/gi, "");
         var span = $('<span>').addClass('indicator')
                               .addClass(data.class_name)
-                              .css('background-image', 'url(./img/icons/shift_'+data.category+'/'+(data.icon||'truck')+'.png)')
                               .hide();
+                              //.css('background-image', 'url(./img/icons/shift_'+data.category+'/'+(data.icon||'truck')+'.png)')
         $('#row-template').append(span);
       });
     
