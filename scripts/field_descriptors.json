@@ -8,7 +8,7 @@
         "display":true,
 		"left": 30,
 		"right": 30,
-		"mode": "stretch",
+		"mode": "stretch"
     },
     
     "Service exports": {
