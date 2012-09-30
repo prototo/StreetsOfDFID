@@ -242,7 +242,10 @@ $(function() {
       _.each(field_descriptors, function(data, name) {
         if (!data.display) return;
         field_descriptors[name].class_name = name.replace(/\W/gi, "");
-        var span = $('<span>').addClass('indicator').addClass(field_descriptors[name].class_name).hide();
+        var span = $('<span>').addClass('indicator')
+                              .addClass(field_descriptors[name].class_name)
+                              .css('background-image', 'url(../img/icons/'+"truck"||field_descriptors[name].class_name+'.png)')
+                              .hide();
         $('#row-template').append(span);
       });
     
