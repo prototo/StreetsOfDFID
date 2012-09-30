@@ -97,7 +97,7 @@ $(function() {
     },
     
     initialize : function() {
-      this.$el.css('background-image', 'url(../img/icons/'+this.model.get('icon')+'.png)');
+      this.$el.css('background-image', 'url(./img/icons/'+this.model.get('icon')+'.png)');
       this.model.bind('change', this.render, this);
     },
 
@@ -127,7 +127,7 @@ $(function() {
     },
     
     initialize : function() {
-      this.$el.css('background-image', 'url(../img/flags/'+this.model.get('icon')+'.png)');
+      this.$el.css('background-image', 'url(./img/flags/'+this.model.get('icon')+'.png)');
       this.model.bind('change', this.render, this);
     },
 
@@ -247,7 +247,7 @@ $(function() {
         data.class_name = name.replace(/\W/gi, "");
         var span = $('<span>').addClass('indicator')
                               .addClass(data.class_name)
-                              .css('background-image', 'url(../img/icons/shift_'+data.category+'/'+(data.icon||'truck')+'.png)')
+                              .css('background-image', 'url(./img/icons/shift_'+data.category+'/'+(data.icon||'truck')+'.png)')
                               .hide();
         $('#row-template').append(span);
       });
