@@ -97,7 +97,7 @@ $(function() {
     },
     
     initialize : function() {
-      this.$el.css('background-image', 'url(./img/icons/'+this.model.get('icon')+'.png)');
+      this.$el.css('background-image', 'url(./img/icons/shift_'+this.model.get('category')+"/"+this.model.get('icon')+'.png)');
       this.model.bind('change', this.render, this);
     },
 
