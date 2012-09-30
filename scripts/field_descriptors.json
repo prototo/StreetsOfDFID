@@ -3,7 +3,7 @@
     "Trade (% of GDP)": {
         "source":["Trade (% of GDP)"],
         "category":"direct",
-        "icon":"",
+        "icon":"GDP",
         "description":"",
         "display":true
     },
@@ -333,7 +333,7 @@
         ],
         "category": "indirect",
         "display":true,
-        "icon":"popple",
+        "icon":"population",
         "description":""
     },
     "Unemployment": {
@@ -377,6 +377,37 @@
         "display":true,
         "icon":"equality",
         "description":""
-    }
+    },
     
+    "Millitary expenditure": {
+        "source":["Military expenditure (% of GDP)"],
+        "category": "indirect",
+        "display":true,
+        "icon":"rocketsmoke",
+        "description":""
+    },
+    
+    "Health expenditure": {
+        "source":["Health expenditure, public (% of GDP)"],
+        "category": "indirect",
+        "display":true,
+        "icon":"Health",
+        "description":""
+    },
+
+    "Life expectancy": {
+        "source":["Life expectancy at birth, total (years)"],
+        "category": "indirect",
+        "display":true,
+        "icon":"Mortality",
+        "description":""
+    },
+    
+    "Access to electricity": {
+        "source":["Access to electricity (% of population)"],
+        "category": "indirect",
+        "display":true,
+        "icon":"Electricity",
+        "description":""
+    }
 }
