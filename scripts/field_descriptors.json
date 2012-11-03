@@ -1,6 +1,6 @@
 {
     
-    "Trade (% of GDP)": {
+    "Imports of goods and services": {
         "source":["Trade (% of GDP)"],
         "category":"direct",
         "icon":"GDP",
@@ -166,7 +166,7 @@
 		"right": 20,
 		"mode": "stretch"
     },
-    "Container cost export": {
+    "Cost to export": {
         "source":["Cost to export (US$ per container)"],
         "category": "export",
         "display":true,
@@ -176,13 +176,13 @@
 		"right": 20,
 		"mode": "stretch"
     },
-    "Container cost to import": {
+    "Cost to import": {
         "source":["Cost to import (US$ per container)"],
         "category": "import",
         "display":true,
         "icon":"Freights",
         "scale":"inverted",
-        "description":"",
+        "description":"Total costs attached to the importation of goods.",
 		"left": 20,
 		"right": 20,
 		"mode": "stretch"
@@ -213,7 +213,7 @@
         "description":"",
         "display":true
     },
-    "Logistics customs efficiency": {
+    "Logistics performance index: Efficiency of customs clearance process (1=low to 5=high)": {
         "source":["Logistics performance index: Efficiency of customs clearance process (1=low to 5=high)"],
         "category": "direct",
         "display":false,
@@ -227,7 +227,7 @@
         "icon":"broombroom",
         "description":""
     },
-    "Logistics quality": {
+    "Logistics performance index: Quality of trade and transport-related infrastructure (1=low to 5=high)": {
         "source":["Logistics performance index: Quality of trade and transport-related infrastructure (1=low to 5=high)"],
         "category": "direct",
         "display":false,
@@ -301,7 +301,7 @@
         "description":"",
         "scale":"inverted"
     },
-    "Time import": {
+    "Time to import (days)": {
         "source":["Time to import (days)"],
         "category": "import",
         "display":true,
@@ -331,7 +331,7 @@
         "description":"",
         "scale":"inverted"
     },
-    "Documents to import": {
+    "Documents to import (number)": {
         "source":["Documents to import (number)"],
         "category": "import",
         "display":true,

@@ -5,9 +5,17 @@ $(function() {
     Views : {}
   },
   countries = [ 'Peru', 'Cambodia', 'Sudan', 'Bangladesh', 'China', 'United States', 'United Kingdom', 'India', 'Kenya', 'Nigeria', 'South Africa', 'Azerbaijan' ],
-  indicators = [ 'Education', 'Time export', 'Time import', 'Documents to export', 'Documents to import', 'Logistics', 'Container cost export', 'Container cost to import' ],
+  indicators = [
+    'Cost to import',
+    'Documents to import (number)',
+    // 'Imports of goods and services',
+    'Logistics performance index: Efficiency of customs clearance process (1=low to 5=high)',
+    'Logistics performance index: Quality of trade and transport-related infrastructure (1=low to 5=high)',
+    'Time to import (days)'
+  ],
   descriptors = './scripts/field_descriptors.json',
   fields = './data/fields.json';
+  
   
   App.Models.Indicator = Backbone.Model.extend({
     defaults : {
@@ -34,7 +42,7 @@ $(function() {
     tagName : 'li',
     className : 'indicator',
     template : _.template(
-      '<img />'
+      ''
     ),
     
     initialize : function() {
@@ -44,7 +52,8 @@ $(function() {
     render : function() {
       var self = this,
           view = this.template(this.model.toJSON());
-      this.$el.html(view);
+      this.$el.html(view)
+              .css({ 'background-image' : 'url("./img/icons/' + this.model.get('icon') + '.png")'});
       setTimeout(function() {
         var height = self.model.get('value') * 300;
         self.$el.css({ 'height' : height + 'px' });
@@ -107,11 +116,13 @@ $(function() {
       });
 
       _.each(indicators, function(indicator) {
+        console.log(indicator, App.descriptors);
         var descriptor = App.descriptors[indicator];
+        console.log(descriptor);
         var view = self.iconTemplate({
           className : 'icon',
           id : indicator,
-          src : 'http://placekitten.com/80' || descriptor.icon,
+          src : descriptor.icon ? './img/icons/' + descriptor.icon + '.png' : 'http://placekitten.com/80',
           tooltip : descriptor.description || 'this is a descriptor'
         });
         self.side_bar.append(view);
@@ -129,7 +140,8 @@ $(function() {
           var model = new App.Models.Indicator({
             name : id,
             description : indicator.description,
-            value : indicator.data[country.name]
+            value : indicator.data[country.name],
+            icon : App.fields[id].icon
           });
           country.add(model);
         } else {
