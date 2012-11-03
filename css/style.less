@@ -2,17 +2,22 @@
 @import "elements.less";
 
 // VARS
-@header-height: 50px;
-@top-bar-height: 110px;
-@left-bar-width: 120px;
+@top: 200px;
+@left: 5%;
 
-@blue : #0B61A4;
+@blue : #69D2E7;
+@pond : lighten(#A7DBD8, 10%);
+@beach : #FCFBE3;
+@gold : #F38630;
+@orange : #FA6900;
+
+@header-height: 50px;
+
 @lightblue : lighten(@blue, 20%);
 @darkblue : darken(@blue, 20%);
 @yellow : #FFBF00;
 @lightyellow : lighten(@yellow, 20%);
 @darkyellow : darken(@yellow, 20%);
-@orange : #FF4900;
 @lightorange : lighten(@orange, 20%);
 @darkorange : darken(@orange, 20%);
 
@@ -24,70 +29,71 @@ HTML, BODY {
   padding: 0;
   width: 100%;
   height: 100%;
+  background-color : @beach;
 
   HEADER {
     z-index: 2;
-	position: absolute;
-	top: 0px;
-	left: 0px;
-	right: 0px;
-
-	H1 {
-		background: white;
-		/* border-bottom: 2px solid black; */
-		margin: 0px;
-		padding: 0px;
-		text-align: center;
-		height: 50px;
-		position: relative;
-		z-index: 10;
-	}
-	#docblock {
-		position: absolute;
-		left: 250px;
-		right: 250px;
-		top: @header-height;
-		z-index: 9;
-	}
-	#docs {
-		margin: 0px;
-		padding: 0px;
-		background: white;
-		border: 2px solid black;
-		border-top: 0px;
-		border-radius: 0px 0px 8px 8px;
-
-		P {
-			margin: 0px;
-			padding: 4px;
-		}
-	}
-	.tab {
-		position: absolute;
-		bottom: -23px;
-		left: 250px;
-		right: 250px;
-		text-align: center;
-		font-size: 10px;
-
-		background: white;
-		border-radius: 0px 0px 8px 8px;
-		padding: 4px 16px;
-
-		border: 2px solid black;
-		border-top: 1px solid #ddd;
-
-		cursor: pointer;
-
-		-webkit-transition: background 0.3s;
-		-moz-transition: background 0.3s;
-		-o-transition: background 0.3s;
-		-ms-transition: background 0.3s;
-		transition: background 0.3s;
-	}
-	.tab:hover {
-		background: #eee;
-	}
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	right: 0px;
+  
+  	H1 {
+  		background: white;
+  		/* border-bottom: 2px solid black; */
+  		margin: 0px;
+  		padding: 0px;
+  		text-align: center;
+  		height: 50px;
+  		position: relative;
+  		z-index: 10;
+  	}
+  	#docblock {
+  		position: absolute;
+  		left: 250px;
+  		right: 250px;
+  		top: @header-height;
+  		z-index: 9;
+  	}
+  	#docs {
+  		margin: 0px;
+  		padding: 0px;
+  		background: white;
+  		border: 2px solid black;
+  		border-top: 0px;
+  		border-radius: 0px 0px 8px 8px;
+  
+  		P {
+  			margin: 0px;
+  			padding: 4px;
+  		}
+  	}
+  	.tab {
+  		position: absolute;
+  		bottom: -23px;
+  		left: 250px;
+  		right: 250px;
+  		text-align: center;
+  		font-size: 10px;
+  
+  		background: white;
+  		border-radius: 0px 0px 8px 8px;
+  		padding: 4px 16px;
+  
+  		border: 2px solid black;
+  		border-top: 1px solid #ddd;
+  
+  		cursor: pointer;
+  
+  		-webkit-transition: background 0.3s;
+  		-moz-transition: background 0.3s;
+  		-o-transition: background 0.3s;
+  		-ms-transition: background 0.3s;
+  		transition: background 0.3s;
+  	}
+  	.tab:hover {
+  		background: #eee;
+  	}
   }
 
   DIV#blackout {
@@ -107,41 +113,72 @@ HTML, BODY {
     height: 100%;
     padding: 0;
     margin: 0;
-	position: relative;
+    
+    UL {
+      list-style-type : none;
+      padding : 3px;
+      margin : 0;
+      
+      LI {
+        margin : 0;
+        padding : 0;
+      }
+    }
 
-    DIV#left-bar {
-      .gradient(@background, lighten(@background, 1%), @background);
-      position: fixed;
-      top: @top-bar-height + @header-height;
-      left: 0;
-      bottom: 0;
-      width: @left-bar-width;
-      border-right: 2px solid black;
-      overflow: visible;
-      padding: 5px 0 0 0;
-      z-index: 500;
+    DIV#side-bar {
+      background-color : @beach;
+      position : fixed;
+      height : 95%;
+      width : @left;
+      top : @top + @header-height;
+      left : 0;
+      text-align: center;
+      
+      LI {
+        width : 100%;
+        padding : 25px 0 0 0;
+      }
     }
 
     DIV#top-bar {
-      .gradient(@background, lighten(@background, 1%), @background);
-      position: fixed;
-      top: @header-height;
-      left: 0;
-      border-bottom: 2px solid black;
-      height: @top-bar-height;
-      width: 100%;
-      overflow: visible;
-      z-index: 500;
+      background-color : @beach;
+      position : fixed;
+      height : @top;
+      width : 95%;
+      top : @header-height;
+      left : @left;
+      
+      LI {
+        display : inline-block;
+        width : (100%/12);
+        text-align : center;
+        padding-top : ((@top/2) - (96px/2));
+      }
     }
 
-    DIV#rows {
+    DIV#cols {
       position: fixed;
-      top: @top-bar-height + @header-height;
-      left: @left-bar-width;
-      right: 0;
-      bottom: 0;
-      overflow: scroll;
-      z-index:400;
+      left: @left;
+      top : @top + @header-height;
+      bottom : 0;
+      width : 95%;
+      background-color : @pond;
+      
+      UL {
+        width : 100%/12;
+        min-height : 100%;
+        display : inline-block;
+        padding : 0;
+        margin : 0;
+        
+        LI {
+          
+        }
+      }
+      
+      UL:nth-child(even) {
+        background-color : darken(@pond, 3%);
+      }
     }
   }
 
@@ -151,61 +188,14 @@ HTML, BODY {
 }
 
 .icon {
-  .rounded(10px);
-  height: 80px;
-  width: 80px;
-  margin: 10px 5px;
-  background-size: 90%;
-  background-repeat: no-repeat;
-  background-position: center center;
-  display: inline-block;
-  cursor: pointer;
-  overflow: visible;
-  background-color: white;
-  position: relative;
-
-  &.enabled {
-    background-color: @lightyellow;
-  }
-  
-  .tooltip {
-    left: 0 !important;
-  }
+  .rounded();
+  width: 96px;
+  height: 96px;
 }
 
 .flag {
-  .icon;
-  margin: 5px 10px;
-  
-  &.enabled {
-    background-color: @lightorange;
-  }
-  
-  .tooltip {
-    top: 0 !important;
-    left: 90px !important;
-  }
-}
-
-.row {
-  min-height: 120px;
-  min-width: 100%;
-  position: relative;
-  display: block;
-  border-bottom: 1px solid #666;
-  border-top: 1px solid #ccc;
-  
-  .remove {
-    display: block;
-    position: absolute;
-    right: 0;
-    top: 0;
-    height: 50px;
-    width: 50px;
-    /* background-image: url("./img/icons/Greedo.png"); */
-    background-size: 100%;
-    pointer: cursor;
-  }
+  .rounded();
+  height: 96px;
 }
 
 .indicator {

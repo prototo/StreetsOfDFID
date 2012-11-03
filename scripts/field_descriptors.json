@@ -7,7 +7,6 @@
         "description":"",
         "display":true
     },
-    
     "Service exports": {
         "source":["Service exports (BoP, current US$)"],
         "category":"export",
@@ -37,9 +36,6 @@
         "description":"",
         "display":true
     },
-
-    
-    
     "Tax revenue": {
         "source":["Tax revenue (% of GDP)"],
         "category": "indirect",
