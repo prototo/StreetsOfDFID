@@ -1,11 +1,11 @@
 
 /* bar types */
 .indicator {
-	-webkit-transition: width 1s;
-	-moz-transition: width 1s;
-	-o-transition: width 1s;
-	-ms-transition: width 1s;
-	transition: width 1s;
+	-webkit-transition: height 1s;
+	-moz-transition: height 1s;
+	-o-transition: height 1s;
+	-ms-transition: height 1s;
+	transition: height 1s;
 
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -14,9 +14,9 @@
 
 .border-image(@img: "export/truck", @l: 0px, @r: 0px, @mode: stretch) {
 	border-color: #eee;
-	border-width: 0px ~"@{r}px" 0px ~"@{l}px";
-       -moz-border-image: url("../img/icons/shift_@{img}.png") 0 @r 0 @l @mode;
-    -webkit-border-image: url("../img/icons/shift_@{img}.png") 0 @r 0 @l @mode;
-         -o-border-image: url("../img/icons/shift_@{img}.png") 0 @r 0 @l @mode;
-            border-image: url("../img/icons/shift_@{img}.png") 0 @r 0 @l fill @mode;
+	border-height: 0px ~"@{r}px" 0px ~"@{l}px";
+       -moz-border-image: url("../img/icons/shift_@{img}.png") @r 0 @l 0 @mode;
+    -webkit-border-image: url("../img/icons/shift_@{img}.png") @r 0 @l 0 @mode;
+         -o-border-image: url("../img/icons/shift_@{img}.png") @r 0 @l 0 @mode;
+            border-image: url("../img/icons/shift_@{img}.png") @r 0 @l 0 fill @mode;
 }
