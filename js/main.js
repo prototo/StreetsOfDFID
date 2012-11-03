@@ -30,10 +30,11 @@ $(function() {
   });
   
   App.Views.Indicator = Backbone.View.extend({
+    model : App.Models.Indicator,
     tagName : 'li',
-    className : '',
+    className : 'indicator',
     template : _.template(
-      '<img src="<%= src %>" />'
+      '<img />'
     ),
     
     initialize : function() {
@@ -41,8 +42,13 @@ $(function() {
     },
     
     render : function() {
-      var view = this.template(this.model.toJSON());
+      var self = this,
+          view = this.template(this.model.toJSON());
       this.$el.html(view);
+      setTimeout(function() {
+        var height = self.model.get('value') * 300;
+        self.$el.css({ 'height' : height + 'px' });
+      }, 1000);
       return this;
     }
   });
