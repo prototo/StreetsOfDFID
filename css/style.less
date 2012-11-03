@@ -114,14 +114,17 @@ HTML, BODY {
 
   DIV#content {
   	z-index: 0;
-    width: 90%;
-    height: 80%;
+    position : absolute;
+    top : 80px;
+    bottom: 10px;
+    left: 5%;
+    right: 5%;
     vertical-align: bottom;
     padding: 0;
     margin: auto;
-    top : 20%;
-    position : relative;
     overflow-y : scroll;
+    border: 2px solid black;
+    border-radius: 8px;
     
     UL {
       list-style-type : none;
@@ -219,6 +222,11 @@ HTML, BODY {
 .flag {
   .rounded();
   height: 96px;
+
+  IMG {
+  	width: 80px;
+  	height: 52px;
+  }
 }
 
 .indicator {
