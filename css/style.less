@@ -33,7 +33,7 @@ HTML, BODY {
 
   HEADER {
     z-index: 2;
-  	position: absolute;
+  	position: fixed;
   	top: 0px;
   	left: 0px;
   	right: 0px;
@@ -48,6 +48,12 @@ HTML, BODY {
   		position: relative;
   		z-index: 10;
   	}
+	#bar {
+  		position: relative;
+		z-index: 6;
+		border-bottom: 2px solid black;
+  		height: 0px;
+	}
   	#docblock {
   		position: absolute;
   		left: 250px;
@@ -97,7 +103,7 @@ HTML, BODY {
   }
 
   DIV#blackout {
-  	position: absolute;
+  	position: fixed;
 	top: 0px;
 	left: 0px;
 	right: 0px;
@@ -113,7 +119,7 @@ HTML, BODY {
     height: 100%;
     padding: 0;
     margin: 0;
-    
+
     UL {
       list-style-type : none;
       padding : 3px;
@@ -130,7 +136,7 @@ HTML, BODY {
       position : fixed;
       height : 95%;
       width : @left;
-      top : @top + @header-height;
+      top : @top;
       left : 0;
       text-align: center;
       
@@ -145,7 +151,7 @@ HTML, BODY {
       position : fixed;
       height : @top;
       width : 95%;
-      top : @header-height;
+      top : 0px;
       left : @left;
       
       LI {
@@ -159,7 +165,7 @@ HTML, BODY {
     DIV#cols {
       position: fixed;
       left: @left;
-      top : @top + @header-height;
+      top : @top;
       bottom : 0;
       width : 95%;
       background-color : @pond;
