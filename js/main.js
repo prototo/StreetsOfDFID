@@ -93,7 +93,7 @@ $(function() {
         var flag = self.iconTemplate({
           className : 'flag',
           id : country.name,
-          src : 'http://placekitten.com/96' || country.name,
+          src : country.name ? "img/flags/"+country.name.replace(" ", "_")+".png" : 'http://placekitten.com/96',
           tooltip : country.name
         });
         self.top_bar.append(flag);
