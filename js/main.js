@@ -80,7 +80,7 @@ $(function() {
     ),
     
     events : {
-      
+      'click li.icon>img' : 'toggleItem'
     },
     
     initialize : function() {
@@ -93,7 +93,7 @@ $(function() {
         var flag = self.iconTemplate({
           className : 'flag',
           id : country.name,
-          src : country.name ? "img/flags/"+country.name.replace(" ", "_")+".png" : 'http://placekitten.com/96',
+          src : country.name ? "img/flags/"+country.name.replace(" ", "_")+".png" : 'http://placekitten.com/80',
           tooltip : country.name
         });
         self.top_bar.append(flag);
@@ -106,11 +106,17 @@ $(function() {
         var view = self.iconTemplate({
           className : 'icon',
           id : indicator,
-          src : 'http://placekitten.com/96' || descriptor.icon,
+          src : 'http://placekitten.com/80' || descriptor.icon,
           tooltip : descriptor.description || 'this is a descriptor'
         });
         self.side_bar.append(view);
       });
+    },
+    
+    toggleItem : function(e) {
+      console.log(e);
+      var id = e.target.id;
+      
     }
   });
   
@@ -127,9 +133,9 @@ $(function() {
     });
     App.app = new App.Views.App;
     
-    $(document).tooltip({
-      track : true
-    });
+    // $(document).tooltip({
+      // track : true
+    // });
   }
   
   $.getJSON(
