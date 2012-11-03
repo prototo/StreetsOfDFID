@@ -2,12 +2,12 @@
 @import "elements.less";
 
 // VARS
-@top-bar-height: 110px;
-@left-bar-width: 120px;
+@top: 200px;
+@left: 5%;
 
 @blue : #69D2E7;
-@pond : #A7DBD8;
-@beach : #E0E4CC;
+@pond : lighten(#A7DBD8, 10%);
+@beach : #FCFBE3;
 @gold : #F38630;
 @orange : #FA6900;
 
@@ -27,6 +27,7 @@ HTML, BODY {
   padding: 0;
   width: 100%;
   height: 100%;
+  background-color : @beach;
 
   HEADER {
     
@@ -37,40 +38,72 @@ HTML, BODY {
     height: 100%;
     padding: 0;
     margin: 0;
+    
+    UL {
+      list-style-type : none;
+      padding : 3px;
+      margin : 0;
+      
+      LI {
+        margin : 0;
+        padding : 0;
+      }
+    }
 
     DIV#side-bar {
-      .gradient(@background, lighten(@background, 1%), @background);
-      position: fixed;
-      top: @top-bar-height;
-      left: 0;
-      bottom: 0;
-      width: @left-bar-width;
-      border-right: 2px solid black;
-      overflow: visible;
-      padding: 5px 0 0 0;
-      z-index: 500;
+      background-color : @beach;
+      position : fixed;
+      height : 95%;
+      width : @left;
+      top : @top;
+      left : 0;
+      text-align: center;
+      
+      LI {
+        width : 100%;
+        padding : 25px 0 0 0;
+      }
     }
 
     DIV#top-bar {
-      .gradient(@background, lighten(@background, 1%), @background);
-      position: fixed;
-      top: 0;
-      left: 0;
-      border-bottom: 2px solid black;
-      height: @top-bar-height;
-      width: 100%;
-      overflow: visible;
-      z-index: 500;
+      background-color : @beach;
+      position : fixed;
+      height : @top;
+      width : 95%;
+      top : 0;
+      left : @left;
+      
+      LI {
+        display : inline-block;
+        width : (100%/12);
+        text-align : center;
+        padding-top : ((@top/2) - (96px/2));
+      }
     }
 
     DIV#cols {
       position: fixed;
-      top: @top-bar-height;
-      left: @left-bar-width;
-      right: 0;
-      bottom: 0;
-      overflow: scroll;
-      z-index:400;
+      left: @left;
+      top : @top;
+      bottom : 0;
+      width : 95%;
+      background-color : @pond;
+      
+      UL {
+        width : 100%/12;
+        min-height : 100%;
+        display : inline-block;
+        padding : 0;
+        margin : 0;
+        
+        LI {
+          
+        }
+      }
+      
+      UL:nth-child(even) {
+        background-color : darken(@pond, 3%);
+      }
     }
   }
 
@@ -80,95 +113,12 @@ HTML, BODY {
 }
 
 .icon {
-  .rounded(10px);
-  height: 80px;
-  width: 80px;
-  margin: 10px 5px;
-  background-size: 90%;
-  background-repeat: no-repeat;
-  background-position: center center;
-  display: inline-block;
-  cursor: pointer;
-  overflow: visible;
-  background-color: white;
-  position: relative;
-
-  &.enabled {
-    background-color: @lightyellow;
-  }
-  
-  .tooltip {
-    left: 0 !important;
-  }
+  .rounded();
+  width: 96px;
+  height: 96px;
 }
 
 .flag {
-  .icon;
-  margin: 5px 10px;
-  
-  &.enabled {
-    background-color: @lightorange;
-  }
-  
-  .tooltip {
-    top: 0 !important;
-    left: 90px !important;
-  }
-}
-
-.row {
-  min-height: 120px;
-  min-width: 100%;
-  position: relative;
-  display: block;
-  border-bottom: 1px solid #666;
-  border-top: 1px solid #ccc;
-  
-  .country_title {
-    position: absolute;
-    z-index: 1000;
-    top: 5px;
-    left: 5px;
-  }
-  
-  .remove {
-    display: block;
-    position: absolute;
-    right: 0;
-    top: 0;
-    height: 50px;
-    width: 50px;
-    background-image: url("../img/icons/Greedo.png");
-    background-size: 100%;
-    pointer: cursor;
-  }
-}
-
-.indicator {
-  width: 80px;
-  height: 100px;
-  margin: 10px;
-  display: inline-block;
-  background-color: #eee;
-  border-color: #eee;
-  
-  .rounded(10px);
-  background-size: 90%;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-
-/* simpletip */
-.tooltip {
-  .rounded(10px);
-  .drop-shadow(0, 1px, 2px, 0.8);
-  position: absolute;
-  background-color: @lightblue;
-  color: rgba(255, 255, 255, 0.95);
-  font-weight: bold;
-  text-align: center;
-  font-size: 14px;
-  padding: 15px;
-  text-shadow: -1px -1px rgba(0, 0, 0, 0.25);
-  z-index: 1000;
+  .rounded();
+  height: 96px;
 }

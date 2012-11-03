@@ -5,7 +5,8 @@ $(function() {
     Views : {}
   },
   countries = [ 'Peru', 'Cambodia', 'Sudan', 'Bangladesh', 'China', 'United States', 'United Kingdom', 'India', 'Kenya', 'Nigeria', 'South Africa', 'Azerbaijan' ],
-  descriptors = './scripts/descriptors.json',
+  indicators = [ 'Education', 'Time export', 'Time import', 'Documents to export', 'Documents to import', 'Logistics', 'Container cost export', 'Container cost to import' ],
+  descriptors = './scripts/field_descriptors.json',
   fields = './data/fields.json';
   
   App.Models.Indicator = Backbone.Model.extend({
@@ -15,20 +16,25 @@ $(function() {
       value : 0
     },
     
-    initialise : function() {
+    initialize : function() {
       
     }
   });
   
   App.Collections.Country = Backbone.Collection.extend({
+    model : App.Models.Indicator,
     
+    initialize : function(name) {
+      this.name = name;
+    }
   });
   
   App.Views.Indicator = Backbone.View.extend({
     tagName : 'li',
     className : '',
+    src : 'http://placekitten.com/96',
     template : _.template(
-      '<img src="<%= name %>" />'
+      '<img src="<%= src %>" />'
     ),
     
     initialize : function() {
@@ -36,7 +42,9 @@ $(function() {
     },
     
     render : function() {
-      
+      var view = this.template(this.model.toJSON());
+      this.$el.html(view);
+      return this;
     }
   });
   
@@ -44,29 +52,65 @@ $(function() {
     tagName : 'ul',
     className : '',
     template : _.template(
-      
+      '<%= name %>'
     ),
     
-    initialize : function() {
-      
+    initialize : function(country) {
+      this.country = country;
+      this.country.on('reset', this.render, this);
+      this.country.on('add', this.addIndicator, this);
+    },
+    
+    addIndicator : function(model) {
+      var view = new App.Views.Indicator({model : model});
+      this.$el.append(view.render().el);
     },
     
     render : function() {
-      
+      this.$el.html(this.template(this.country.toJSON));
+      if (this.model.length) _.each(this.models, this.addIndicator);
+      return this;
     }
   });
   
   App.Views.App = Backbone.View.extend({
     el : $('DIV#content'),
+    iconTemplate : _.template(
+      '<li class="<%= className %>" id="<%= id %>"><img src="<%= src %>" title="<%= tooltip %>" /></li>'
+    ),
     
     events : {
       
     },
     
-    initialise : function() {
-      this.top_bar = this.$('DIV#top-bar');
-      this.side_bar = this.$('DIV#side-bar');
+    initialize : function() {
+      var self = this;
+      this.top_bar = this.$('DIV#top-bar UL');
+      this.side_bar = this.$('DIV#side-bar UL');
       this.cols = this.$('DIV#cols');
+      
+      _.each(App.countries, function(country) {
+        var flag = self.iconTemplate({
+          className : 'flag',
+          id : country.name,
+          src : 'http://placekitten.com/96' || country.name,
+          tooltip : country.name
+        });
+        self.top_bar.append(flag);
+        var view = new App.Views.Country(country);
+        self.cols.append(view.render().el);
+      });
+
+      _.each(indicators, function(indicator) {
+        var descriptor = App.descriptors[indicator];
+        var view = self.iconTemplate({
+          className : 'icon',
+          id : indicator,
+          src : 'http://placekitten.com/96' || descriptor.icon,
+          tooltip : descriptor.description || 'this is a descriptor'
+        });
+        self.side_bar.append(view);
+      });
     }
   });
   
@@ -77,7 +121,15 @@ $(function() {
   });
   
   function init() {
-    // do something with descriptors and fields :)
+    App.countries = [];
+    _.each(countries, function(country) {
+      App.countries.push(new App.Collections.Country(country));
+    });
+    App.app = new App.Views.App;
+    
+    $(document).tooltip({
+      track : true
+    });
   }
   
   $.getJSON(
@@ -85,7 +137,7 @@ $(function() {
     function(json) {
       App.descriptors = json;
       $.getJSON(
-        fiels,
+        fields,
         function(json) {
           App.fields = json;
           init();
