@@ -32,7 +32,7 @@ HTML, BODY {
 
   HEADER {
     z-index: 2;
-  	position: absolute;
+  	position: fixed;
   	top: 0px;
   	left: 0px;
   	right: 0px;
@@ -47,6 +47,12 @@ HTML, BODY {
   		position: relative;
   		z-index: 10;
   	}
+	#bar {
+  		position: relative;
+		z-index: 6;
+		border-bottom: 2px solid black;
+  		height: 0px;
+	}
   	#docblock {
   		position: absolute;
   		left: 250px;
@@ -96,7 +102,7 @@ HTML, BODY {
   }
 
   DIV#blackout {
-  	position: absolute;
+  	position: fixed;
 	top: 0px;
 	left: 0px;
 	right: 0px;
