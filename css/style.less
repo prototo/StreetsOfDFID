@@ -5,13 +5,17 @@
 @top-bar-height: 110px;
 @left-bar-width: 120px;
 
-@blue : #0B61A4;
+@blue : #69D2E7;
+@pond : #A7DBD8;
+@beach : #E0E4CC;
+@gold : #F38630;
+@orange : #FA6900;
+
 @lightblue : lighten(@blue, 20%);
 @darkblue : darken(@blue, 20%);
 @yellow : #FFBF00;
 @lightyellow : lighten(@yellow, 20%);
 @darkyellow : darken(@yellow, 20%);
-@orange : #FF4900;
 @lightorange : lighten(@orange, 20%);
 @darkorange : darken(@orange, 20%);
 
@@ -34,7 +38,7 @@ HTML, BODY {
     padding: 0;
     margin: 0;
 
-    DIV#left-bar {
+    DIV#side-bar {
       .gradient(@background, lighten(@background, 1%), @background);
       position: fixed;
       top: @top-bar-height;
@@ -59,7 +63,7 @@ HTML, BODY {
       z-index: 500;
     }
 
-    DIV#rows {
+    DIV#cols {
       position: fixed;
       top: @top-bar-height;
       left: @left-bar-width;
@@ -120,6 +124,13 @@ HTML, BODY {
   border-bottom: 1px solid #666;
   border-top: 1px solid #ccc;
   
+  .country_title {
+    position: absolute;
+    z-index: 1000;
+    top: 5px;
+    left: 5px;
+  }
+  
   .remove {
     display: block;
     position: absolute;
@@ -127,7 +138,7 @@ HTML, BODY {
     top: 0;
     height: 50px;
     width: 50px;
-    background-image: url("./img/icons/Greedo.png");
+    background-image: url("../img/icons/Greedo.png");
     background-size: 100%;
     pointer: cursor;
   }
