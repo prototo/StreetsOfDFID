@@ -146,3 +146,11 @@ $(function() {
     }
   );
 });
+
+$(function() {
+	$("#toggledocs").click(function() {
+		$("#docs").slideToggle();
+		$("#blackout").fadeToggle();
+		$("#toggledocs span").toggle();
+	});
+});
