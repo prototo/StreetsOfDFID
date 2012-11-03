@@ -17,7 +17,7 @@ $(function() {
     },
     
     initialize : function() {
-      
+      this.set('src', 'http://placekitten.com/80' || this.get('name'));
     }
   });
   
@@ -32,13 +32,12 @@ $(function() {
   App.Views.Indicator = Backbone.View.extend({
     tagName : 'li',
     className : '',
-    src : 'http://placekitten.com/96',
     template : _.template(
       '<img src="<%= src %>" />'
     ),
     
     initialize : function() {
-      
+      this.model.on('remove', this.remove, this);
     },
     
     render : function() {
@@ -114,9 +113,23 @@ $(function() {
     },
     
     toggleItem : function(e) {
-      console.log(e);
-      var id = e.target.id;
-      
+      var self = this,
+          li = $(e.target.parentElement),
+          id = e.target.parentElement.id,
+          indicator = App.fields[id];
+      li.toggleClass('active');
+      _.each(App.countries, function(country) {
+        if (li.hasClass('active')) {
+          var model = new App.Models.Indicator({
+            name : id,
+            description : indicator.description,
+            value : indicator.data[country.name]
+          });
+          country.add(model);
+        } else {
+          country.remove(country.where({name : id}));
+        }
+      });
     }
   });
   
