@@ -14,7 +14,14 @@ $(function() {
     'Time to import (days)'
   ],
   descriptors = './scripts/field_descriptors.json',
-  fields = './data/fields.json';
+  fields = './data/fields.json',
+  descriptor2field = {
+	"Cost to import": "Container cost to import",
+	"Documents to import (number)": "Documents to import",
+	"Logistics performance index: Efficiency of customs clearance process (1=low to 5=high)": "Logistics customs efficiency",
+	"Logistics performance index: Quality of trade and transport-related infrastructure (1=low to 5=high)": "Logistics",
+	"Time to import (days)": "Time import"
+  };
   
   
   App.Models.Indicator = Backbone.Model.extend({
@@ -116,14 +123,12 @@ $(function() {
       });
 
       _.each(indicators, function(indicator) {
-        console.log(indicator, App.descriptors);
         var descriptor = App.descriptors[indicator];
-        console.log(descriptor);
         var view = self.iconTemplate({
           className : 'icon',
           id : indicator,
           src : descriptor.icon ? './img/icons/' + descriptor.icon + '.png' : 'http://placekitten.com/80',
-          tooltip : descriptor.description || 'this is a descriptor'
+          tooltip : descriptor.description || indicator
         });
         self.side_bar.append(view);
       });
@@ -133,15 +138,16 @@ $(function() {
       var self = this,
           li = $(e.target.parentElement),
           id = e.target.parentElement.id,
-          indicator = App.fields[id];
+          indicator = App.descriptors[id],
+		  field = App.fields[descriptor2field[id]];
       li.toggleClass('active');
       _.each(App.countries, function(country) {
         if (li.hasClass('active')) {
           var model = new App.Models.Indicator({
             name : id,
             description : indicator.description,
-            value : indicator.data[country.name],
-            icon : App.fields[id].icon
+            value : field.data[country.name],
+            icon : indicator.icon
           });
           country.add(model);
         } else {
